@@ -1,0 +1,23 @@
+{
+  "name": "interactive-responsive-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taekyung2pub-sketch/interactive-responsive-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taekyung2pub-sketch/interactive-responsive-web/issues"
+  },
+  "homepage": "https://github.com/taekyung2pub-sketch/interactive-responsive-web#readme",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.99.0"
+  }
+}
