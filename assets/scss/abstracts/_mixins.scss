@@ -1,0 +1,121 @@
+@use '../abstracts/variables' as *;
+
+@mixin flex($direction: row, $align: center, $justify: flex-start, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  @if $gap != 0 { gap: $gap; }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* =========================
+ * Font Mixins
+ * ========================= */
+@function getFontWeight($type) {
+  @if $type == 'bold' {
+    @return $font-weight-bold;
+  } @else if $type == 'sb' {
+    @return $font-weight-semibold;
+  } @else if $type == 'md' {
+    @return $font-weight-medium;
+  } @else {
+    @return $font-weight-regular;
+  }
+}
+
+@mixin title01($type : 'bold') {
+  font-size: $font-title01-size;
+  line-height: $font-title01-line-height;
+  font-weight: getFontWeight($type);
+}
+
+@mixin title02($type : 'bold') {
+  font-size: $font-title02-size;
+  line-height: $font-title02-line-height;
+  font-weight: getFontWeight($type);
+}
+
+@mixin title03($type : 'sb') {
+  font-size: $font-title03-size;
+  line-height: $font-title03-line-height;
+  font-weight: getFontWeight($type);
+}
+
+@mixin body01($type : 'md') {
+  font-size: $font-body01-size;
+  line-height: $font-body01-line-height;
+  font-weight: getFontWeight($type);
+}
+
+@mixin body02($type : 'md') {
+  font-size: $font-body02-size;
+  line-height: $font-body02-line-height;
+  font-weight: getFontWeight($type);
+}
+
+@mixin body03($type : 'rgl') {
+  font-size: $font-body03-size;
+  line-height: $font-body03-line-height;
+  font-weight: getFontWeight($type);
+}
+
+@mixin body04($type : 'rgl') {
+  font-size: $font-body04-size;
+  line-height: $font-body04-line-height;
+  font-weight: getFontWeight($type);
+}
+
+@mixin caption01($type : 'md') {
+  font-size: $font-caption01-size;
+  line-height: $font-caption01-line-height;
+  font-weight: getFontWeight($type);
+}
+
+@mixin caption02($type : 'rgl') {
+  font-size: $font-caption02-size;
+  line-height: $font-caption02-line-height;
+  font-weight: getFontWeight($type);
+}
+
+
+$breakpoints: ('sm': 480px, 'md': 768px, 'lg': 1024px, 'xl': 1280px);
+
+@mixin responsive($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) { @content; }
+}
+
+@mixin hover {
+  transition: $transition-fast;
+  &:hover { @content; }
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $primary01;
+    outline-offset: 2px;
+  }
+}
+
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

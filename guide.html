@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Responsive Web</title>
+
+    <link rel="stylesheet" href="assets/css/front.css" />
+</head>
+<body>
+
+<div class="guide-wrap">
+
+    <header class="guide-header">
+        <span class="guide-chip">Component Guide</span>
+
+        <h1 class="guide-title">TextField</h1>
+
+        <p class="guide-desc">
+            사용자 입력을 처리하기 위한 기본 입력 컴포넌트입니다.
+            로그인, 검색, 폼 작성 등 다양한 입력 흐름에서 공통적으로 사용됩니다.
+        </p>
+    </header>
+
+    <!-- Component Role -->
+    <section class="guide-section">
+        <h2 class="section-title">1. Component Role</h2>
+
+        <div class="guide-card">
+            <p>
+                TextField는 사용자의 텍스트 입력을 담당하는 기본 Form 컴포넌트입니다.
+                단일 입력 흐름을 기준으로 설계되었으며, 상태 표현과 입력 인터랙션에 집중합니다.
+            </p>
+
+            <ul class="guide-text-list">
+                <li>로그인 / 회원가입 입력 UI</li>
+                <li>검색 및 필터 입력 영역</li>
+                <li>기본 Form 입력 흐름</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Composition -->
+    <section class="guide-section">
+        <h2 class="section-title">2. Composition</h2>
+
+        <div class="guide-card">
+
+            <ol class="guide-number-list">
+                <li>FormField와 조합하여 사용</li>
+                <li>slot 구조 기반으로 확장</li>
+                <li>상태 표현은 내부에서 처리</li>
+                <li>validation은 상위 컴포넌트에서 관리</li>
+            </ol>
+
+            <div class="guide-composition">
+                <div class="composition-box">Label</div>
+
+                <div class="composition-arrow">↓</div>
+
+                <div class="composition-box active">
+                    FormField
+                </div>
+
+                <div class="composition-arrow">↓</div>
+
+                <div class="composition-row">
+                    <div class="composition-box">Left Slot</div>
+
+                    <div class="composition-box active">
+                        TextField
+                    </div>
+
+                    <div class="composition-box">Right Slot</div>
+                </div>
+
+                <div class="composition-arrow">↓</div>
+
+                <div class="composition-box">
+                    HelperText
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notes -->
+    <section class="guide-section">
+        <h2 class="section-title">3. Notes</h2>
+
+        <div class="guide-card">
+            <ul class="guide-notes">
+
+                <li>
+                    <strong>상태 관리 책임</strong>
+
+                    <p>
+                        입력 상태(focus, disabled, readonly)는
+                        TextField 내부에서 처리합니다.
+                    </p>
+                </li>
+
+                <li>
+                    <strong>유효성 관리</strong>
+
+                    <p>
+                        에러 메시지 및 validation 상태는
+                        FormField에서 관리합니다.
+                    </p>
+                </li>
+
+                <li>
+                    <strong>확장 기준</strong>
+
+                    <p>
+                        아이콘, 버튼 등은
+                        slot 구조를 기준으로 확장합니다.
+                    </p>
+
+                    <ul class="guide-text-list">
+                        <li>검색 아이콘 추가</li>
+                        <li>비밀번호 토글 버튼</li>
+                        <li>상태 아이콘 노출</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>협업 기준</strong>
+
+                    <p>
+                        스타일 수정 시 spacing / typography token 사용을 권장합니다.
+                    </p>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

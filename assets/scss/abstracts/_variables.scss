@@ -1,0 +1,110 @@
+/* =========================
+ * Variables
+ * ========================= */
+
+/* Typography */
+/* Title */
+$font-title01-size: 32px;
+$font-title01-line-height: 44px;
+
+$font-title02-size: 24px;
+$font-title02-line-height: 34px;
+
+$font-title03-size: 20px;
+$font-title03-line-height: 30px;
+
+/* Body */
+$font-body01-size: 18px;
+$font-body01-line-height: 30px;
+
+$font-body02-size: 16px;
+$font-body02-line-height: 26px;
+
+$font-body03-size: 14px;
+$font-body03-line-height: 22px;
+
+$font-body04-size: 13px;
+$font-body04-line-height: 20px;
+
+/* Caption */
+$font-caption01-size: 12px;
+$font-caption01-line-height: 18px;
+
+$font-caption02-size: 11px;
+$font-caption02-line-height: 16px;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+/* Gray Scale */
+$gray900: #18181b;
+$gray800: #27272a;
+$gray700: #3f3f46;
+$gray600: #52525b;
+$gray500: #71717a;
+$gray400: #a1a1aa;
+$gray300: #d4d4d8;
+$gray200: #e4e4e7;
+$gray100: #f4f4f5;
+
+$black: #000000;
+$white: #ffffff;
+
+/* Primary */
+$primary01: #7c8ea3;
+$primary02: #62748a;
+$primary03: #4a5b70;
+
+/* Secondary */
+$secondary01: #b08b6b;
+$secondary02: #9a7658;
+$secondary03: #7e6047;
+
+/* Surface */
+$surface01: #ffffff;
+$surface02: #f8f8f8;
+$surface03: #f1f1f1;
+
+/* Border */
+$border01: #e4e4e7;
+$border02: #d4d4d8;
+$border03: #a1a1aa;
+
+/* Semantic */
+$success: #6f8a7a;
+$warning: #d6a45d;
+$error: #c46b6b;
+$info: #7c8ea3;
+
+/* Gradient */
+$gradient01: linear-gradient(135deg, #7c8ea3 0%, #b0bccb 100%);
+$gradient02: linear-gradient(135deg, #b08b6b 0%, #e2d1bf 100%);
+
+/* =========================
+ * Temp
+ * ========================= */
+
+/* Spacing */
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 48px;
+
+/* Border radius */
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 16px;
+$radius-full: 9999px;
+
+/* Shadow */
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+/* Transition */
+$transition-fast: 0.15s ease;
+$transition-normal: 0.25s ease;
