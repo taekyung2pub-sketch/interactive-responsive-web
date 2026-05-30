@@ -1,0 +1,331 @@
+@import 'variables';
+@import 'reset';
+@import 'layout';
+@import 'common';
+
+// about 페이지는 아래 공통 클래스를 활용합니다:
+//   .nav  .nav-logo  .nav-links  .nav-link  .nav-link.is-active
+//   .page-hero  .page-hero-label  .page-hero-title
+//   .section  .section-header  .section-label  .section-title
+//   .col2  .col2-left  .col2-right
+//   .col2-sidebar  .col2-left  .col2-right
+//   .stats-row  .stats-row-3  .stats-item  .stats-num  .stats-label
+//   .tag  .tag-lang  .tag-fw  .tag-tool  .tag-group
+//   .footer  .footer-copy  .footer-links  .footer-link
+
+
+// =========================
+// Intro
+// =========================
+
+.intro-title {
+  font-size: clamp($fs-xl, 3vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+  margin-bottom: $sp-lg;
+}
+
+.intro-desc {
+  font-size: $fs-sm;
+  color: $gray-400;
+  line-height: 1.9;
+  & + & { margin-top: $sp-md; }
+}
+
+
+// =========================
+// Strength
+// =========================
+
+.strength-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.strength-item {
+  padding: $sp-lg 0;
+  @include divider-top;
+  transition: padding $ease-normal, background $ease-fast;
+  cursor: default;
+
+  &:last-child { @include divider-bottom; }
+
+  &:hover {
+    padding-left: $sp-sm;
+    background: rgba($white, 0.02);
+    .strength-num   { color: $primary; }
+    .strength-title { color: $white; }
+  }
+}
+
+.strength-header {
+  display: flex;
+  align-items: center;
+  gap: $sp-md;
+  margin-bottom: $sp-sm;
+}
+
+.strength-num {
+  font-size: $fs-xs;
+  color: $gray-600;
+  font-variant-numeric: tabular-nums;
+  transition: color $ease-fast;
+}
+
+.strength-title {
+  font-size: $fs-sm;
+  font-weight: 600;
+  color: $white;
+  transition: color $ease-fast;
+}
+
+.strength-desc {
+  font-size: $fs-xs;
+  color: $gray-500;
+  line-height: 1.8;
+  padding-left: calc(#{$fs-xs} + #{$sp-md} + 2px);
+}
+
+
+// =========================
+// Direction
+// =========================
+
+.direction-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $sp-sm;
+  @include md { grid-template-columns: 1fr; }
+}
+
+.direction-item {
+  display: flex;
+  align-items: center;
+  gap: $sp-sm;
+  padding: $sp-md;
+  border: 1px solid rgba($white, 0.08);
+  border-radius: 6px;
+  transition: border-color $ease-fast, background $ease-fast;
+
+  &:hover {
+    border-color: rgba($white, 0.2);
+    background: rgba($white, 0.03);
+    .direction-icon { transform: translateX(4px); color: $white; }
+  }
+}
+
+.direction-icon {
+  font-size: $fs-xs;
+  color: $gray-600;
+  flex-shrink: 0;
+  transition: transform $ease-normal, color $ease-fast;
+}
+
+.direction-text {
+  font-size: $fs-xs;
+  color: $gray-300;
+  letter-spacing: 0.02em;
+}
+
+
+// =========================
+// Skills
+// =========================
+
+.skills-label {
+  font-size: $fs-xs;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $gray-500;
+  margin-bottom: $sp-xl;
+}
+
+.skills-group {
+  & + & {
+    margin-top: $sp-lg;
+    padding-top: $sp-lg;
+    @include divider-top;
+  }
+}
+
+.skills-group-label {
+  font-size: $fs-xs;
+  color: $gray-600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: $sp-sm;
+}
+
+
+// =========================
+// Career
+// =========================
+
+.career-label {
+  font-size: $fs-xs;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $gray-500;
+  margin-bottom: $sp-xl;
+}
+
+.career-list { display: flex; flex-direction: column; }
+
+.career-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: $sp-lg;
+  padding: $sp-md 0;
+  @include divider-top;
+  transition: padding $ease-normal, background $ease-fast;
+  cursor: default;
+
+  &:last-child { @include divider-bottom; }
+
+  @include md { grid-template-columns: 1fr; gap: $sp-xs; }
+
+  &:hover {
+    padding-left: $sp-sm;
+    background: rgba($white, 0.02);
+    .career-period  { color: $gray-400; }
+    .career-project { color: $white; }
+  }
+}
+
+.career-period {
+  font-size: $fs-xs;
+  color: $gray-500;
+  padding-top: 2px;
+  line-height: 1.6;
+  transition: color $ease-fast;
+}
+
+.career-project {
+  font-size: $fs-sm;
+  font-weight: 500;
+  margin-bottom: $sp-xs;
+  line-height: 1.5;
+  transition: color $ease-fast;
+}
+
+
+// =========================
+// Contact
+// =========================
+
+.contact {
+  padding: $sp-2xl $sp-xl $sp-3xl;
+  @include md { padding: $sp-xl $sp-md $sp-2xl; }
+}
+
+.contact-title {
+  font-size: clamp($fs-2xl, 6vw, 80px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: $sp-2xl;
+}
+
+.contact-list { display: flex; flex-direction: column; }
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $sp-lg 0;
+  @include divider-top;
+  color: $gray-400;
+  transition: color $ease-fast, padding-left $ease-normal;
+
+  &:last-child { @include divider-bottom; }
+
+  &:hover {
+    color: $white;
+    padding-left: $sp-sm;
+    .contact-arrow { transform: translate(4px, -4px); }
+  }
+}
+
+.contact-type {
+  font-size: $fs-xs;
+  color: $gray-600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: $sp-xs;
+}
+
+.contact-value {
+  font-size: $fs-md;
+  font-weight: 500;
+}
+
+.contact-arrow {
+  font-size: $fs-xl;
+  color: $gray-600;
+  transition: transform $ease-normal, color $ease-fast;
+}
+
+
+// =========================
+// Scroll reveal
+// =========================
+
+.strength-item,
+.direction-item,
+.career-item,
+.stats-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  &.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stats-item:hover .stats-num { color: $primary; }
+
+
+// =========================
+// Hero title stagger
+// =========================
+
+.page-hero-title .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  &.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+// =========================
+// Cursor dot
+// =========================
+
+.cursor-dot {
+  position: fixed;
+  top: -6px;
+  left: -6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: $white;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: width 0.2s ease, height 0.2s ease, top 0.2s ease, left 0.2s ease;
+
+  &.is-expand {
+    width: 36px;
+    height: 36px;
+    top: -18px;
+    left: -18px;
+  }
+}

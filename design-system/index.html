@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System — 이태경</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="/src/styles/design-system.scss" />
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">TK.</a>
+  <ul class="nav-links">
+    <li><a href="/" class="nav-link">Home</a></li>
+    <li><a href="/about.html" class="nav-link">About</a></li>
+    <li><a href="/design-system/" class="nav-link is-active">System</a></li>
+  </ul>
+  <button class="nav-menu-btn" id="navMenuBtn" aria-label="메뉴 열기">
+    <img src="/src/assets/icons/menu.svg" alt="" aria-hidden="true" />
+  </button>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-lnb" id="navLnb">
+  <button class="nav-lnb-close" id="navLnbClose" aria-label="메뉴 닫기">
+    <img src="/src/assets/icons/close.svg" alt="" aria-hidden="true" />
+  </button>
+  <a href="/" class="nav-lnb-link">Home</a>
+  <a href="/about.html" class="nav-lnb-link">About</a>
+  <a href="/design-system/" class="nav-lnb-link is-active">System</a>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div>
+    <span class="chip chip-primary">Portfolio · Design System</span>
+  </div>
+  <h1 class="page-hero-title">Design<br /><em class="page-hero-title-muted">System</em></h1>
+  <p class="page-hero-desc">
+    이 포트폴리오 사이트의 디자인 시스템 가이드.<br />
+    네이밍 규칙, 파일 구조, 공통 레이아웃, 컴포넌트,<br />
+    디자인 토큰까지 모든 페이지에 적용된 기준을 정리합니다.
+  </p>
+  <div class="hero-stats">
+    <div>
+      <p class="hero-stat-num">7</p>
+      <p class="hero-stat-label">Pages</p>
+    </div>
+    <div>
+      <p class="hero-stat-num">8</p>
+      <p class="hero-stat-label">SCSS Files</p>
+    </div>
+    <div>
+      <p class="hero-stat-num">5</p>
+      <p class="hero-stat-label">Token Categories</p>
+    </div>
+    <div>
+      <p class="hero-stat-num">7</p>
+      <p class="hero-stat-label">Icons</p>
+    </div>
+  </div>
+</section>
+
+<!-- Naming Convention -->
+<section class="section">
+  <div class="section-header">
+    <p class="section-label">Convention</p>
+    <h2 class="section-title">네이밍 규칙</h2>
+  </div>
+  <div class="spec-grid">
+    <div class="spec-card">
+      <p class="spec-card-label">Class Naming — 하이픈</p>
+      <div class="ds-code-list">
+        <div class="ds-code-item">
+          <span class="ds-code-key">block</span>
+          <span class="ds-code-val">.nav .footer .section</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">block-element</span>
+          <span class="ds-code-val">.nav-logo .nav-link</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">block-element-child</span>
+          <span class="ds-code-val">.nav-lnb-link .work-nav-label</span>
+        </div>
+      </div>
+    </div>
+    <div class="spec-card">
+      <p class="spec-card-label">State Class — is- / u-</p>
+      <div class="ds-code-list">
+        <div class="ds-code-item">
+          <span class="ds-code-key">is-active</span>
+          <span class="ds-code-val">현재 페이지 nav 링크</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">is-open</span>
+          <span class="ds-code-val">LNB, overlay 열린 상태</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">is-disabled</span>
+          <span class="ds-code-val">비활성 링크/버튼</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">is-visible</span>
+          <span class="ds-code-val">scroll reveal 완료</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">is-scrolled</span>
+          <span class="ds-code-val">nav 스크롤 배경</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">u-fade</span>
+          <span class="ds-code-val">scroll reveal 초기 상태</span>
+        </div>
+      </div>
+    </div>
+    <div class="spec-card">
+      <p class="spec-card-label">Tag Variant — modifier</p>
+      <div class="ds-code-list">
+        <div class="ds-code-item">
+          <span class="ds-code-key">.tag-lang</span>
+          <span class="ds-code-val">HTML CSS JS TS</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">.tag-fw</span>
+          <span class="ds-code-val">React Vue Next Nuxt</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">.tag-tool</span>
+          <span class="ds-code-val">라이브러리 / 툴</span>
+        </div>
+      </div>
+    </div>
+    <div class="spec-card">
+      <p class="spec-card-label">SCSS Mixin</p>
+      <div class="ds-code-list">
+        <div class="ds-code-item">
+          <span class="ds-code-key">@include md</span>
+          <span class="ds-code-val">max-width: 768px</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">@include lg</span>
+          <span class="ds-code-val">max-width: 1024px</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">@include flex-center</span>
+          <span class="ds-code-val">display flex + center</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">@include flex-between</span>
+          <span class="ds-code-val">display flex + space-between</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">@include section-padding</span>
+          <span class="ds-code-val">64px 40px / 40px 16px</span>
+        </div>
+        <div class="ds-code-item">
+          <span class="ds-code-key">@include divider-top/bottom</span>
+          <span class="ds-code-val">1px solid rgba(white, 0.06)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- File Structure -->
+<section class="section">
+  <div class="section-header">
+    <p class="section-label">Architecture</p>
+    <h2 class="section-title">파일 구조</h2>
+  </div>
+  <div class="spec-grid">
+    <div class="spec-card">
+      <p class="spec-card-label">src/styles/</p>
+      <div class="ds-file-list">
+        <div class="ds-file-item">
+          <span class="ds-file-name">_variables.scss</span>
+          <span class="ds-file-desc">컬러, 타이포, 간격, 이징 토큰</span>
+        </div>
+        <div class="ds-file-item">
+          <span class="ds-file-name">_reset.scss</span>
+          <span class="ds-file-desc">기본 리셋</span>
+        </div>
+        <div class="ds-file-item ds-file-item-highlight">
+          <span class="ds-file-name">_layout.scss</span>
+          <span class="ds-file-desc">page-hero / section / col2 / sidebar / img-area / work-nav / stats-row</span>
+        </div>
+        <div class="ds-file-item ds-file-item-highlight">
+          <span class="ds-file-name">_common.scss</span>
+          <span class="ds-file-desc">nav / footer / tag / chip / text-link / u-fade</span>
+        </div>
+        <div class="ds-file-item">
+          <span class="ds-file-name">index.scss</span>
+          <span class="ds-file-desc">풀스크린 레이아웃 전용</span>
+        </div>
+        <div class="ds-file-item">
+          <span class="ds-file-name">about.scss</span>
+          <span class="ds-file-desc">about 페이지 전용</span>
+        </div>
+        <div class="ds-file-item">
+          <span class="ds-file-name">work-detail.scss</span>
+          <span class="ds-file-desc">공통 레이아웃으로 커버</span>
+        </div>
+        <div class="ds-file-item">
+          <span class="ds-file-name">design-system.scss</span>
+          <span class="ds-file-desc">이 페이지 전용</span>
+        </div>
+      </div>
+    </div>
+    <div class="spec-card">
+      <p class="spec-card-label">src/js/</p>
+      <div class="ds-file-list">
+        <div class="ds-file-item ds-file-item-highlight">
+          <span class="ds-file-name">utils.js</span>
+          <span class="ds-file-desc">initNav / initReveal / initCountUp / initHeroStagger / initCursor</span>
+        </div>
+        <div class="ds-file-item">
+          <span class="ds-file-name">index.js</span>
+          <span class="ds-file-desc">스와이퍼 + 뷰 토글</span>
+        </div>
+        <div class="ds-file-item">
+          <span class="ds-file-name">about.js</span>
+          <span class="ds-file-desc">utils 4개 호출</span>
+        </div>
+        <div class="ds-file-item">
+          <span class="ds-file-name">main.js</span>
+          <span class="ds-file-desc">work-detail 공통 reveal</span>
+        </div>
+        <div class="ds-file-item">
+          <span class="ds-file-name">ds.js</span>
+          <span class="ds-file-desc">이 페이지 전용 reveal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Layout -->
+<section class="section">
+  <div class="section-header">
+    <p class="section-label">Layout</p>
+    <h2 class="section-title">공통 레이아웃</h2>
+  </div>
+  <div class="component-grid">
+    <div>
+      <p class="component-col-title">Page Hero</p>
+      <div class="component-item">.page-hero</div>
+      <div class="component-item">.page-hero-sm</div>
+      <div class="component-item">.page-hero-title</div>
+      <div class="component-item">.page-hero-title-lg</div>
+      <div class="component-item">.page-hero-label</div>
+      <div class="component-item">.page-hero-desc</div>
+      <div class="component-item">.page-hero-meta</div>
+      <div class="component-item">.page-hero-back</div>
+      <p class="component-col-title" style="margin-top:24px;">Section</p>
+      <div class="component-item">.section</div>
+      <div class="component-item">.section-header</div>
+      <div class="component-item">.section-label</div>
+      <div class="component-item">.section-title</div>
+    </div>
+    <div>
+      <p class="component-col-title">Column</p>
+      <div class="component-item">.col2</div>
+      <div class="component-item">.col2-sidebar</div>
+      <div class="component-item">.col2-left</div>
+      <div class="component-item">.col2-right</div>
+      <p class="component-col-title" style="margin-top:24px;">Sidebar</p>
+      <div class="component-item">.sidebar</div>
+      <div class="component-item">.sidebar-section</div>
+      <div class="component-item">.sidebar-label</div>
+      <div class="component-item">.sidebar-desc</div>
+      <div class="component-item">.sidebar-status</div>
+      <div class="component-item">.sidebar-list</div>
+    </div>
+    <div>
+      <p class="component-col-title">Image Area</p>
+      <div class="component-item">.img-area</div>
+      <div class="component-item">.img-item</div>
+      <div class="component-item">.img-placeholder</div>
+      <div class="component-item">.img-caption</div>
+      <p class="component-col-title" style="margin-top:24px;">Work Nav</p>
+      <div class="component-item">.work-nav</div>
+      <div class="component-item">.work-nav-item</div>
+      <div class="component-item">.work-nav-item.is-next</div>
+      <div class="component-item">.work-nav-item.is-disabled</div>
+      <div class="component-item">.work-nav-label</div>
+      <div class="component-item">.work-nav-title</div>
+      <p class="component-col-title" style="margin-top:24px;">Stats</p>
+      <div class="component-item">.stats-row</div>
+      <div class="component-item">.stats-row-3</div>
+      <div class="component-item">.stats-item</div>
+      <div class="component-item">.stats-num</div>
+      <div class="component-item">.stats-label</div>
+    </div>
+  </div>
+</section>
+
+<!-- Components -->
+<section class="section">
+  <div class="section-header">
+    <p class="section-label">Components</p>
+    <h2 class="section-title">공통 컴포넌트</h2>
+  </div>
+
+  <!-- Nav preview -->
+  <div class="token-block">
+    <p class="token-title">Nav</p>
+    <div class="ds-preview">
+      <div class="ds-preview-nav">
+        <span class="ds-preview-logo">TK.</span>
+        <div class="ds-preview-links">
+          <span class="ds-preview-link">Home</span>
+          <span class="ds-preview-link is-active">About</span>
+          <span class="ds-preview-link">System</span>
+        </div>
+      </div>
+    </div>
+    <div class="component-grid" style="margin-top:24px;">
+      <div>
+        <p class="component-col-title">Elements</p>
+        <div class="component-item">.nav</div>
+        <div class="component-item">.nav-logo</div>
+        <div class="component-item">.nav-links</div>
+        <div class="component-item">.nav-link</div>
+        <div class="component-item">.nav-link.is-active</div>
+      </div>
+      <div>
+        <p class="component-col-title">Mobile LNB</p>
+        <div class="component-item">.nav-menu-btn</div>
+        <div class="component-item">.nav-overlay</div>
+        <div class="component-item">.nav-lnb</div>
+        <div class="component-item">.nav-lnb.is-open</div>
+        <div class="component-item">.nav-lnb-close</div>
+        <div class="component-item">.nav-lnb-link</div>
+      </div>
+      <div>
+        <p class="component-col-title">Scroll State</p>
+        <div class="component-item">.nav.is-scrolled</div>
+        <div class="component-item" style="color:#666;">→ background blur 적용</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tag preview -->
+  <div class="token-block">
+    <p class="token-title">Tag / Chip</p>
+    <div class="ds-preview">
+      <div class="tag-group">
+        <span class="tag">Default</span>
+        <span class="tag tag-lang">HTML</span>
+        <span class="tag tag-lang">SCSS</span>
+        <span class="tag tag-lang">TypeScript</span>
+        <span class="tag tag-fw">React</span>
+        <span class="tag tag-fw">Vue 3</span>
+        <span class="tag tag-tool">Storybook</span>
+        <span class="tag tag-tool">Vite</span>
+        <span class="chip">Chip</span>
+        <span class="chip chip-primary">Chip Primary</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Text link preview -->
+  <div class="token-block">
+    <p class="token-title">Text Link / Button</p>
+    <div class="ds-preview">
+      <a href="#" class="text-link">
+        View Storybook <img src="/src/assets/icons/arrow-up-right.svg" alt="" aria-hidden="true" />
+      </a>
+    </div>
+    <div class="component-grid" style="margin-top:24px;">
+      <div>
+        <p class="component-col-title">States</p>
+        <div class="component-item">.text-link</div>
+        <div class="component-item">.text-link.is-disabled</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer preview -->
+  <div class="token-block">
+    <p class="token-title">Footer</p>
+    <div class="component-grid">
+      <div>
+        <p class="component-col-title">Elements</p>
+        <div class="component-item">.footer</div>
+        <div class="component-item">.footer-copy</div>
+        <div class="component-item">.footer-links</div>
+        <div class="component-item">.footer-link</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Icons -->
+<section class="section">
+  <div class="section-header">
+    <p class="section-label">Icons</p>
+    <h2 class="section-title">아이콘</h2>
+  </div>
+  <p class="ds-icon-source">lucide.dev — SVG 파일로 저장 후 img 태그로 사용. <code>filter: invert(1)</code> 로 색상 처리.</p>
+  <div class="ds-icon-grid">
+    <div class="ds-icon-item">
+      <img src="/src/assets/icons/arrow-left.svg" alt="" />
+      <span>arrow-left</span>
+      <span class="ds-icon-usage">Back · Prev</span>
+    </div>
+    <div class="ds-icon-item">
+      <img src="/src/assets/icons/arrow-right.svg" alt="" />
+      <span>arrow-right</span>
+      <span class="ds-icon-usage">Next · Direction</span>
+    </div>
+    <div class="ds-icon-item">
+      <img src="/src/assets/icons/arrow-up-right.svg" alt="" />
+      <span>arrow-up-right</span>
+      <span class="ds-icon-usage">외부 링크</span>
+    </div>
+    <div class="ds-icon-item">
+      <img src="/src/assets/icons/mail.svg" alt="" />
+      <span>mail</span>
+      <span class="ds-icon-usage">Email</span>
+    </div>
+    <div class="ds-icon-item">
+      <img src="/src/assets/icons/github.svg" alt="" />
+      <span>github</span>
+      <span class="ds-icon-usage">GitHub</span>
+    </div>
+    <div class="ds-icon-item">
+      <img src="/src/assets/icons/menu.svg" alt="" />
+      <span>menu</span>
+      <span class="ds-icon-usage">Nav 햄버거</span>
+    </div>
+    <div class="ds-icon-item">
+      <img src="/src/assets/icons/close.svg" alt="" />
+      <span>close (x)</span>
+      <span class="ds-icon-usage">LNB 닫기</span>
+    </div>
+    <div class="ds-icon-item">
+      <img src="/src/assets/icons/square.svg" alt="" />
+      <span>square</span>
+      <span class="ds-icon-usage">Featured 뷰</span>
+    </div>
+    <div class="ds-icon-item">
+      <img src="/src/assets/icons/columns-3.svg" alt="" />
+      <span>columns-3</span>
+      <span class="ds-icon-usage">Index 뷰</span>
+    </div>
+  </div>
+</section>
+
+<!-- Design Tokens -->
+<section class="section">
+  <div class="section-header">
+    <p class="section-label">Design Tokens</p>
+    <h2 class="section-title">디자인 토큰</h2>
+  </div>
+
+  <!-- Color Gray -->
+  <div class="token-block">
+    <p class="token-title">Color — Gray Scale</p>
+    <div class="swatch-row">
+      <div class="swatch-item"><div class="swatch-block" style="background:#0a0a0a;"></div><span class="swatch-label">$black</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#111111;"></div><span class="swatch-label">900</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#1a1a1a;"></div><span class="swatch-label">800</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#2a2a2a;"></div><span class="swatch-label">700</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#3a3a3a;"></div><span class="swatch-label">600</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#666666;"></div><span class="swatch-label">500</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#999999;"></div><span class="swatch-label">400</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#cccccc;"></div><span class="swatch-label">300</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#e5e5e5;"></div><span class="swatch-label">200</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#f5f5f5;"></div><span class="swatch-label">100</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"></div><span class="swatch-label">$white</span></div>
+    </div>
+  </div>
+
+  <!-- Color Brand -->
+  <div class="token-block">
+    <p class="token-title">Color — Brand & Semantic</p>
+    <div class="swatch-row">
+      <div class="swatch-item"><div class="swatch-block" style="background:#7c8ea3;"></div><span class="swatch-label">$primary</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#b08b6b;"></div><span class="swatch-label">$accent</span></div>
+      <div style="width:12px;"></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#6f8a7a;"></div><span class="swatch-label">$success</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#d6a45d;"></div><span class="swatch-label">$warning</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#c46b6b;"></div><span class="swatch-label">$error</span></div>
+    </div>
+    <p class="token-title" style="margin-top:20px;">Tag Colors</p>
+    <div class="swatch-row">
+      <div class="swatch-item"><div class="swatch-block" style="background:#a8bece;"></div><span class="swatch-label">tag-lang</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#cda888;"></div><span class="swatch-label">tag-fw</span></div>
+      <div class="swatch-item"><div class="swatch-block" style="background:#96b5a6;"></div><span class="swatch-label">tag-tool</span></div>
+    </div>
+  </div>
+
+  <!-- Typography -->
+  <div class="token-block">
+    <p class="token-title">Typography — Pretendard</p>
+    <div class="typo-list">
+      <div class="typo-item"><span class="typo-meta">$fs-4xl · 80px</span><span style="font-size:clamp(28px,5vw,80px);font-weight:700;line-height:1;">The quick brown fox</span></div>
+      <div class="typo-item"><span class="typo-meta">$fs-3xl · 56px</span><span style="font-size:clamp(24px,4vw,56px);font-weight:700;line-height:1.1;">The quick brown fox</span></div>
+      <div class="typo-item"><span class="typo-meta">$fs-2xl · 36px</span><span style="font-size:36px;font-weight:700;line-height:1.2;">The quick brown fox</span></div>
+      <div class="typo-item"><span class="typo-meta">$fs-xl · 24px</span>  <span style="font-size:24px;font-weight:700;line-height:1.3;">The quick brown fox</span></div>
+      <div class="typo-item"><span class="typo-meta">$fs-lg · 18px</span>  <span style="font-size:18px;font-weight:600;line-height:1.5;">The quick brown fox</span></div>
+      <div class="typo-item"><span class="typo-meta">$fs-md · 15px</span>  <span style="font-size:15px;font-weight:500;line-height:1.6;">The quick brown fox</span></div>
+      <div class="typo-item"><span class="typo-meta">$fs-sm · 13px</span>  <span style="font-size:13px;font-weight:400;line-height:1.6;">The quick brown fox</span></div>
+      <div class="typo-item"><span class="typo-meta">$fs-xs · 11px</span>  <span style="font-size:11px;font-weight:400;line-height:1.6;letter-spacing:0.06em;">THE QUICK BROWN FOX</span></div>
+    </div>
+  </div>
+
+  <!-- Spacing -->
+  <div class="token-block">
+    <p class="token-title">Spacing</p>
+    <div class="spacing-row">
+      <div class="spacing-item"><div class="spacing-block" style="width:8px;height:4px;"></div><span class="spacing-label">$sp-xs<br />4px</span></div>
+      <div class="spacing-item"><div class="spacing-block" style="width:16px;height:8px;"></div><span class="spacing-label">$sp-sm<br />8px</span></div>
+      <div class="spacing-item"><div class="spacing-block" style="width:32px;height:16px;"></div><span class="spacing-label">$sp-md<br />16px</span></div>
+      <div class="spacing-item"><div class="spacing-block" style="width:48px;height:24px;"></div><span class="spacing-label">$sp-lg<br />24px</span></div>
+      <div class="spacing-item"><div class="spacing-block" style="width:64px;height:32px;"></div><span class="spacing-label">$sp-xl<br />40px</span></div>
+      <div class="spacing-item"><div class="spacing-block" style="width:80px;height:40px;"></div><span class="spacing-label">$sp-2xl<br />64px</span></div>
+      <div class="spacing-item"><div class="spacing-block" style="width:96px;height:48px;"></div><span class="spacing-label">$sp-3xl<br />120px</span></div>
+    </div>
+  </div>
+
+  <!-- Radius -->
+  <div class="token-block">
+    <p class="token-title">Border Radius</p>
+    <div class="radius-row">
+      <div class="radius-item"><div class="radius-block" style="border-radius:3px;"></div><span class="radius-label">3px<br />.tag</span></div>
+      <div class="radius-item"><div class="radius-block" style="border-radius:6px;"></div><span class="radius-label">6px<br />.direction-item</span></div>
+      <div class="radius-item"><div class="radius-block" style="border-radius:8px;"></div><span class="radius-label">8px<br />.img-item</span></div>
+      <div class="radius-item"><div class="radius-block" style="border-radius:10px;"></div><span class="radius-label">10px<br />.spec-card</span></div>
+      <div class="radius-item"><div class="radius-block" style="border-radius:9999px;"></div><span class="radius-label">9999px<br />.chip</span></div>
+    </div>
+  </div>
+
+  <!-- Transition -->
+  <div class="token-block">
+    <p class="token-title">Transitions</p>
+    <div class="typo-list">
+      <div class="typo-item"><span class="typo-meta">$ease-fast</span><span style="font-size:13px;color:#666;">0.15s ease — hover 색상, opacity</span></div>
+      <div class="typo-item"><span class="typo-meta">$ease-normal</span><span style="font-size:13px;color:#666;">0.3s cubic-bezier(0.4, 0, 0.2, 1) — 위치 이동, 크기 변화</span></div>
+      <div class="typo-item"><span class="typo-meta">$ease-slow</span><span style="font-size:13px;color:#666;">0.6s cubic-bezier(0.4, 0, 0.2, 1) — scroll reveal, 페이지 전환</span></div>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <p class="footer-copy">©2026 이태경</p>
+  <ul class="footer-links">
+    <li><a href="mailto:taekyung2pub@gmail.com" class="footer-link"><img src="/src/assets/icons/mail.svg" alt="" aria-hidden="true" /> Email</a></li>
+    <li><a href="https://github.com/taekyung2pub-sketch" target="_blank" class="footer-link"><img src="/src/assets/icons/github.svg" alt="" aria-hidden="true" /> GitHub</a></li>
+  </ul>
+</footer>
+
+<script type="module" src="/src/js/ds.js"></script>
+</body>
+</html>

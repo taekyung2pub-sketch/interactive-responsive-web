@@ -1,0 +1,371 @@
+@import 'variables';
+@import 'reset';
+@import 'common';
+
+// index 페이지는 풀스크린 레이아웃으로 _layout.scss 를 사용하지 않습니다.
+
+body {
+  overflow: hidden;
+  height: 100vh;
+}
+
+
+// =========================
+// Nav override (index 전용)
+// =========================
+// 풀스크린 배경 위에 mix-blend-mode: difference 적용
+
+.nav {
+  mix-blend-mode: difference;
+  pointer-events: none;
+
+  .nav-logo,
+  .nav-links { pointer-events: auto; }
+
+  // nav-menu-btn은 모바일에서만 pointer-events 허용
+  @include md {
+    .nav-menu-btn { pointer-events: auto; }
+  }
+}
+
+
+// =========================
+// Layout
+// =========================
+
+.layout {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-top {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.layout-bottom {
+  position: relative;
+  height: 80px;
+  flex-shrink: 0;
+  background: $black;
+  overflow: hidden;
+}
+
+
+// =========================
+// View toggle bar
+// =========================
+
+.view-bar {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  flex-shrink: 0;
+  background: $black;
+}
+
+.view-bar-line {
+  flex: 1;
+  height: 1px;
+  background: rgba($white, 0.12);
+}
+
+.view-bar-btn {
+  width: 48px;
+  height: 48px;
+  @include flex-center;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-left: 1px solid rgba($white, 0.12);
+  border-right: 1px solid rgba($white, 0.12);
+  transition: background $ease-fast;
+  &:hover { background: rgba($white, 0.06); }
+}
+
+
+// =========================
+// Toggle icon
+// =========================
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.btn-icon-square,
+.btn-icon-list {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  filter: invert(1);
+  // opacity + rotate 동시 — 같은 중심점에서 회전하며 교체
+  transition:
+          opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// 기본 (featured 모드): square 보임, list는 -180° 대기
+.btn-icon-square {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.btn-icon-list {
+  opacity: 0;
+  transform: rotate(-180deg);
+}
+
+// index 모드 전환: square → +180° 퇴장, list → 0° 등장
+.layout.is-index {
+  .btn-icon-square {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
+  .btn-icon-list {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+
+// =========================
+// Featured swiper
+// =========================
+
+.featured-swiper {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.5s $ease-normal, transform 0.5s $ease-normal;
+
+  .layout.is-index & {
+    opacity: 0;
+    transform: scale(0.98);
+    pointer-events: none;
+  }
+}
+
+.featured-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s $ease-normal;
+
+  &.is-active { opacity: 1; z-index: 2; }
+  &.is-out    { opacity: 0; z-index: 1; }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.featured-slide-label {
+  font-size: $fs-xs;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba($black, 0.35);
+  font-weight: 500;
+}
+
+.featured-prev,
+.featured-next {
+  position: absolute;
+  bottom: $sp-lg;
+  z-index: 20;
+  font-size: $fs-xs;
+  letter-spacing: 0.08em;
+  color: rgba($white, 0.5);
+  transition: color $ease-fast, opacity 0.5s $ease-normal;
+  cursor: pointer;
+  mix-blend-mode: difference;
+
+  &:hover { color: $white; }
+
+  .layout.is-index & {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @include md { display: none; }
+}
+
+.featured-prev { left: $sp-xl; }
+.featured-next { right: $sp-xl; }
+
+
+// =========================
+// Index track
+// =========================
+
+.index-track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.5s $ease-normal, transform 0.5s $ease-normal;
+
+  &::-webkit-scrollbar { display: none; }
+
+  .layout.is-index & {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+.index-slide {
+  flex-shrink: 0;
+  width: 50vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba($white, 0.08);
+  scroll-snap-align: start;
+  color: $white;
+  overflow: hidden;
+
+  &:last-child { border-right: none; }
+  @include md { width: 85vw; }
+
+  &:hover .index-slide-thumb span { transform: scale(1.04); }
+}
+
+.index-slide-thumb {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba($white, 0.08);
+
+  span {
+    font-size: $fs-xs;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba($black, 0.35);
+    font-weight: 500;
+    transition: transform 0.6s ease;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+}
+
+.index-slide-info {
+  display: flex;
+  align-items: center;
+  gap: $sp-sm;
+  padding: $sp-md $sp-xl;
+  flex-shrink: 0;
+  @include md { padding: $sp-md; }
+}
+
+.index-slide-num  { font-size: $fs-xs; color: $gray-500; }
+.index-slide-name { font-size: clamp($fs-lg, 2.5vw, $fs-2xl); font-weight: 700; letter-spacing: -0.02em; }
+
+
+// =========================
+// Bottom: featured title
+// =========================
+
+.featured-bottom {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 $sp-xl;
+  overflow: hidden;
+  transition: opacity 0.4s $ease-normal, transform 0.4s $ease-normal;
+
+  .layout.is-index & {
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+  }
+
+  @include md { padding: 0 $sp-md; }
+}
+
+.featured-title-inner {
+  display: flex;
+  align-items: baseline;
+  gap: $sp-md;
+  transform: translateY(110%);
+  transition: transform 0.4s $ease-normal;
+
+  &.is-visible { transform: translateY(0); }
+  &.is-out     { transform: translateY(-110%); transition: transform 0.25s $ease-normal; }
+}
+
+.featured-num {
+  font-size: $fs-xs;
+  color: $gray-500;
+  flex-shrink: 0;
+}
+
+.featured-title {
+  font-size: clamp($fs-lg, 3vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: $white;
+  transition: opacity $ease-fast;
+  &:hover { opacity: 0.6; }
+}
+
+
+// =========================
+// Bottom: index footer
+// =========================
+
+.index-footer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $sp-xl;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.4s $ease-normal, transform 0.4s $ease-normal;
+
+  .layout.is-index & {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  @include md { padding: 0 $sp-md; }
+
+  p, a { font-size: $fs-xs; color: $gray-500; }
+
+  div {
+    display: flex;
+    gap: $sp-lg;
+    a { transition: color $ease-fast; &:hover { color: $white; } }
+  }
+}

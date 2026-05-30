@@ -1,0 +1,408 @@
+// =========================
+// Nav
+// =========================
+// .nav                  — fixed 상단 네비
+// .nav-logo             — 로고
+// .nav-links            — 링크 목록 (데스크탑)
+// .nav-link             — 개별 링크
+// .nav-link.is-active   — 현재 페이지
+// .nav-menu-btn         — 모바일 햄버거 버튼
+// .nav-lnb              — 모바일 우측 슬라이드 메뉴
+// .nav-lnb.is-open      — 열린 상태
+// .nav-overlay          — 배경 딤
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: $sp-lg $sp-xl;
+  @include flex-between;
+  @include md { padding: $sp-md; }
+  transition: background $ease-normal, backdrop-filter $ease-normal, border-color $ease-normal;
+  border-bottom: 1px solid transparent;
+
+  &.is-scrolled {
+    background: rgba($black, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: rgba($white, 0.06);
+  }
+}
+
+.nav-logo {
+  font-size: $fs-md;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: $white;
+  mix-blend-mode: difference;
+}
+
+.nav-links {
+  display: flex;
+  gap: $sp-xl;
+  mix-blend-mode: difference;
+
+  @include md { display: none; }
+}
+
+.nav-link {
+  font-size: $fs-xs;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $white;
+  opacity: 0.5;
+  transition: opacity $ease-fast;
+
+  &:hover,
+  &.is-active { opacity: 1; }
+}
+
+// 햄버거 버튼 — 모바일만
+.nav-menu-btn {
+  @include flex-center;
+  display: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+
+  img {
+    width: 18px;
+    height: 18px;
+    filter: invert(1);
+    opacity: 0.7;
+    transition: opacity $ease-fast;
+  }
+
+  &:hover img { opacity: 1; }
+
+  @include md { display: flex; }
+}
+
+// 배경 딤 — 모바일 전용
+.nav-overlay {
+  display: none;
+
+  @include md {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background: rgba($black, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $ease-normal;
+
+    &.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+// 우측 LNB — 모바일 전용
+.nav-lnb {
+  display: none;
+
+  @include md {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    width: 240px;
+    background: $gray-900;
+    border-left: 1px solid rgba($white, 0.06);
+    flex-direction: column;
+    padding: $sp-3xl $sp-xl $sp-xl;
+    gap: $sp-xs;
+    transform: translateX(100%);
+    transition: transform $ease-normal;
+
+    &.is-open { transform: translateX(0); }
+  }
+}
+
+.nav-lnb-link {
+  font-size: $fs-md;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: $white;
+  opacity: 0.4;
+  padding: $sp-sm 0;
+  transition: opacity $ease-fast, padding-left $ease-normal;
+  border-bottom: 1px solid rgba($white, 0.06);
+
+  &:hover     { opacity: 0.8; padding-left: $sp-xs; }
+  &.is-active { opacity: 1; }
+}
+
+.nav-lnb-close {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: $sp-xl;
+
+  img {
+    width: 18px;
+    height: 18px;
+    filter: invert(1);
+    opacity: 0.5;
+    transition: opacity $ease-fast;
+  }
+
+  &:hover img { opacity: 1; }
+}
+
+
+// =========================
+// Footer
+// =========================
+// .footer           — 하단 푸터
+// .footer-copy      — 카피라이트
+// .footer-links     — 링크 목록
+// .footer-link      — 개별 링크
+
+.footer {
+  padding: $sp-lg $sp-xl;
+  @include divider-top;
+  @include flex-between;
+
+  @include md {
+    flex-direction: column;
+    gap: $sp-sm;
+    padding: $sp-lg $sp-md;
+    text-align: center;
+  }
+}
+
+.footer-copy {
+  font-size: $fs-xs;
+  color: $gray-500;
+}
+
+.footer-links {
+  display: flex;
+  gap: $sp-lg;
+}
+
+.footer-link {
+  font-size: $fs-xs;
+  color: $gray-500;
+  transition: color $ease-fast;
+  &:hover { color: $white; }
+}
+
+
+// =========================
+// Tag
+// =========================
+// .tag              — 기본 태그
+// .tag-lang         — 언어 (HTML/CSS/JS/TS)
+// .tag-fw           — 프레임워크 (React/Vue/Next)
+// .tag-tool         — 툴/라이브러리
+// .tag-group        — 태그 묶음 래퍼
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 $sp-sm;
+  border-radius: 3px;
+  font-size: $fs-xs;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background: rgba($white, 0.07);
+  color: $gray-400;
+  border: 1px solid rgba($white, 0.1);
+  white-space: nowrap;
+}
+
+.tag-lang {
+  background: $tag-lang-bg;
+  color: $tag-lang-color;
+  border-color: $tag-lang-border;
+}
+
+.tag-fw {
+  background: $tag-fw-bg;
+  color: $tag-fw-color;
+  border-color: $tag-fw-border;
+}
+
+.tag-tool {
+  background: $tag-tool-bg;
+  color: $tag-tool-color;
+  border-color: $tag-tool-border;
+}
+
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $sp-xs;
+}
+
+
+// =========================
+// Chip (pill 뱃지)
+// =========================
+// .chip             — 둥근 뱃지 기본
+// .chip-primary     — primary 컬러
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 $sp-sm;
+  border-radius: 9999px;
+  font-size: $fs-xs;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  background: rgba($white, 0.07);
+  color: $gray-300;
+  border: 1px solid rgba($white, 0.1);
+}
+
+.chip-primary {
+  background: rgba($primary, 0.2);
+  color: #a8bece;
+  border-color: rgba($primary, 0.3);
+}
+
+
+// =========================
+// Text link (CTA)
+// =========================
+// .text-link            — underline CTA 링크
+// .text-link.is-disabled — 비활성
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: $sp-sm;
+  font-size: $fs-xs;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $white;
+  border-bottom: 1px solid rgba($white, 0.3);
+  padding-bottom: 2px;
+  transition: border-color $ease-fast;
+  width: fit-content;
+
+  &:hover { border-color: $white; }
+
+  &.is-disabled {
+    color: $gray-500;
+    border-color: transparent;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+
+// =========================
+// Utility
+// =========================
+// .u-fade             — scroll reveal 초기 상태
+// .u-fade.is-visible  — reveal 완료
+
+.u-fade {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity $ease-slow, transform $ease-slow;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@for $i from 1 through 8 {
+  .u-fade:nth-child(#{$i}) {
+    transition-delay: #{($i - 1) * 0.08}s;
+  }
+}
+
+
+// =========================
+// Icon (lucide SVG img 태그 공통)
+// =========================
+
+// 기본 흰색 아이콘 (화살표류)
+.text-link img,
+.page-hero-back img,
+.work-nav-label img,
+.featured-prev img,
+.featured-next img {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 0.6;
+  filter: invert(1);
+}
+
+// footer 링크 아이콘 — mail/github 컬러
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  img {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    vertical-align: middle;
+    opacity: 0.45;
+    filter: invert(1);
+    transition: opacity $ease-fast;
+  }
+
+  &:hover img { opacity: 0.9; }
+}
+
+// contact 섹션 아이콘
+.contact-arrow {
+  width: 22px;
+  height: 22px;
+  opacity: 0.3;
+  filter: invert(1);
+  transition: transform $ease-normal, opacity $ease-fast;
+  flex-shrink: 0;
+}
+
+.contact-item:hover .contact-arrow {
+  transform: translate(4px, -4px);
+  opacity: 0.8;
+}
+
+// direction 아이콘
+.direction-icon {
+  width: 12px;
+  height: 12px;
+  opacity: 0.35;
+  filter: invert(1);
+  flex-shrink: 0;
+  transition: transform $ease-normal, opacity $ease-fast;
+}
+
+.direction-item:hover .direction-icon {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+// index footer 아이콘
+.index-footer a img {
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  vertical-align: middle;
+  opacity: 0.45;
+  filter: invert(1);
+  transition: opacity $ease-fast;
+}
+
+.index-footer a:hover img { opacity: 0.9; }

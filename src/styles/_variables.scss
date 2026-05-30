@@ -1,0 +1,114 @@
+// =========================
+// Colors
+// =========================
+
+$black:    #0a0a0a;
+$white:    #ffffff;
+
+$gray-900: #111111;
+$gray-800: #1a1a1a;
+$gray-700: #2a2a2a;
+$gray-600: #3a3a3a;
+$gray-500: #666666;
+$gray-400: #999999;
+$gray-300: #cccccc;
+$gray-200: #e5e5e5;
+$gray-100: #f5f5f5;
+
+$primary:  #7c8ea3;
+$accent:   #b08b6b;
+$success:  #6f8a7a;
+$warning:  #d6a45d;
+$error:    #c46b6b;
+
+// Tag color tokens
+$tag-lang-bg:     rgba(#7c8ea3, 0.15);
+$tag-lang-color:  #a8bece;
+$tag-lang-border: rgba(#7c8ea3, 0.3);
+
+$tag-fw-bg:       rgba(#b08b6b, 0.15);
+$tag-fw-color:    #cda888;
+$tag-fw-border:   rgba(#b08b6b, 0.3);
+
+$tag-tool-bg:     rgba(#6f8a7a, 0.15);
+$tag-tool-color:  #96b5a6;
+$tag-tool-border: rgba(#6f8a7a, 0.3);
+
+
+// =========================
+// Typography
+// =========================
+
+$font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+
+$fs-xs:  11px;
+$fs-sm:  13px;
+$fs-md:  15px;
+$fs-lg:  18px;
+$fs-xl:  24px;
+$fs-2xl: 36px;
+$fs-3xl: 56px;
+$fs-4xl: 80px;
+
+
+// =========================
+// Spacing
+// =========================
+
+$sp-xs:  4px;
+$sp-sm:  8px;
+$sp-md:  16px;
+$sp-lg:  24px;
+$sp-xl:  40px;
+$sp-2xl: 64px;
+$sp-3xl: 120px;
+
+
+// =========================
+// Breakpoints
+// =========================
+
+$bp-md: 768px;
+$bp-lg: 1024px;
+
+
+// =========================
+// Transitions
+// =========================
+
+$ease-fast:   0.15s ease;
+$ease-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$ease-slow:   0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+
+// =========================
+// Mixins
+// =========================
+
+@mixin md { @media (max-width: $bp-md) { @content; } }
+@mixin lg { @media (max-width: $bp-lg) { @content; } }
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin section-padding {
+  padding: $sp-2xl $sp-xl;
+  @include md { padding: $sp-xl $sp-md; }
+}
+
+@mixin divider-bottom {
+  border-bottom: 1px solid rgba($white, 0.06);
+}
+
+@mixin divider-top {
+  border-top: 1px solid rgba($white, 0.06);
+}

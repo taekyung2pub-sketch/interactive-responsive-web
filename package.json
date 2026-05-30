@@ -1,25 +1,15 @@
 {
-  "name": "interactive-responsive-web",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "sass assets/scss/_front.scss assets/css/front.css",
-    "watch": "sass --watch assets/scss:assets/css"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/taekyung2pub-sketch/interactive-responsive-web.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/taekyung2pub-sketch/interactive-responsive-web/issues"
-  },
-  "homepage": "https://github.com/taekyung2pub-sketch/interactive-responsive-web#readme",
-  "description": "",
   "devDependencies": {
-    "sass": "^1.99.0"
+    "sass": "^1.77.0",
+    "vite": "^5.0.0"
   }
 }

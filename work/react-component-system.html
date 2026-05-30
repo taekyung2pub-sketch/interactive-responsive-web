@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React Component System — 이태경</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="/src/styles/work-detail.scss" />
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">TK.</a>
+  <ul class="nav-links">
+    <li><a href="/" class="nav-link">Home</a></li>
+    <li><a href="/about.html" class="nav-link">About</a></li>
+    <li><a href="/design-system/" class="nav-link">System</a></li>
+  </ul>
+  <button class="nav-menu-btn" id="navMenuBtn" aria-label="메뉴 열기">
+    <img src="/src/assets/icons/menu.svg" class="nav-menu-btn-open" alt="" aria-hidden="true" />
+  </button>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-lnb" id="navLnb">
+  <button class="nav-lnb-close" id="navLnbClose" aria-label="메뉴 닫기">
+    <img src="/src/assets/icons/close.svg" alt="" aria-hidden="true" />
+  </button>
+  <a href="/" class="nav-lnb-link">Home</a>
+  <a href="/about.html" class="nav-lnb-link">About</a>
+  <a href="/design-system/" class="nav-lnb-link">System</a>
+</nav>
+
+<section class="page-hero-sm">
+  <a href="/" class="page-hero-back"><img src="/src/assets/icons/arrow-left.svg" alt="" aria-hidden="true" /> Back</a>
+  <h1 class="page-hero-title-lg">React<br />Component<br />System</h1>
+  <div class="page-hero-meta">
+    <a href="https://react-component-system.vercel.app/?path=/docs/design-system-introduction--docs" target="_blank" class="text-link">
+      View Storybook <img src="/src/assets/icons/arrow-up-right.svg" alt="" aria-hidden="true" />
+    </a>
+    <div class="tag-group">
+      <span class="tag tag-fw">React</span>
+      <span class="tag tag-lang">TypeScript</span>
+      <span class="tag tag-tool">styled-components</span>
+      <span class="tag tag-tool">Storybook</span>
+      <span class="tag tag-tool">Vite</span>
+    </div>
+  </div>
+</section>
+
+<div class="col2-sidebar">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <p class="sidebar-label">Overview</p>
+      <p class="sidebar-desc">
+        재사용 가능한 컴포넌트 설계와<br />
+        상태 기반 UI 구성, 구조화를 중심으로<br />
+        만든 React 기반 디자인 시스템입니다.
+      </p>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Focus</p>
+      <ul class="sidebar-list">
+        <li>재사용 가능한 컴포넌트 설계</li>
+        <li>토큰 기반 디자인 시스템</li>
+        <li>Storybook 가이드 문서화</li>
+        <li>상태 기반 UI 구성</li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Status</p>
+      <p class="sidebar-status">Done</p>
+    </div>
+  </aside>
+
+  <div class="img-area">
+    <div class="img-item">
+      <div class="img-placeholder" style="background:#c8b8a2;">Introduction</div>
+      <p class="img-caption">디자인 시스템 소개 — 컬러, 타이포, 스페이싱, 사이즈 토큰 시각화</p>
+    </div>
+    <div class="img-item">
+      <div class="img-placeholder" style="background:#b8c0c8;">Component Guide</div>
+      <p class="img-caption">Component Guide — Role / Composition / Notes 3단계로 정리한 컴포넌트 가이드. 어디서 쓰이는지, 슬롯 구조, 상태 관리 책임 등 협업 기준을 문서화했습니다.</p>
+    </div>
+    <div class="img-item">
+      <div class="img-placeholder" style="background:#a8c4b8;">Storybook Stories</div>
+      <p class="img-caption">Controls / Autodocs 기반 인터랙티브 스토리 — variant, size, state 별 시각 확인</p>
+    </div>
+    <div class="img-item">
+      <div class="img-placeholder" style="background:#c4b8a8;">Design Tokens</div>
+      <p class="img-caption">color, spacing, size, radius, typography 토큰 체계 — 하드코딩 없이 일관된 스타일 적용</p>
+    </div>
+  </div>
+</div>
+
+<nav class="work-nav">
+  <a class="work-nav-item is-disabled">
+    <p class="work-nav-label"><img src="/src/assets/icons/arrow-left.svg" alt="" aria-hidden="true" /> Prev</p>
+    <p class="work-nav-title">—</p>
+  </a>
+  <a href="/work/react-app.html" class="work-nav-item is-next">
+    <p class="work-nav-label">Next <img src="/src/assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></p>
+    <p class="work-nav-title">React Service Flow</p>
+  </a>
+</nav>
+
+<footer class="footer">
+  <p class="footer-copy">©2026 이태경</p>
+  <ul class="footer-links">
+    <li><a href="mailto:taekyung2pub@gmail.com" class="footer-link"><img src="/src/assets/icons/mail.svg" alt="" aria-hidden="true" /> Email</a></li>
+    <li><a href="https://github.com/taekyung2pub-sketch" target="_blank" class="footer-link"><img src="/src/assets/icons/github.svg" alt="" aria-hidden="true" /> GitHub</a></li>
+  </ul>
+</footer>
+
+<script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

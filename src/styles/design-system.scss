@@ -1,0 +1,512 @@
+@import 'variables';
+@import 'reset';
+@import 'layout';
+@import 'common';
+
+// design-system 페이지에서 사용하는 공통 클래스:
+//   .nav  .nav-logo  .nav-links  .nav-link
+//   .page-hero  .page-hero-label  .page-hero-title  .page-hero-desc
+//   .section  .section-header  .section-label  .section-title
+//   .chip  .chip-primary
+//   .tag  .tag-lang  .tag-fw  .tag-tool  .tag-group
+//   .text-link
+//   .footer  .footer-copy  .footer-links  .footer-link
+
+
+// =========================
+// Hero 추가 요소
+// =========================
+
+.hero-stats {
+  display: flex;
+  gap: $sp-2xl;
+  flex-wrap: wrap;
+  margin-bottom: $sp-2xl;
+}
+
+.hero-stat-num {
+  font-size: clamp($fs-2xl, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: $white;
+}
+
+.hero-stat-label {
+  font-size: $fs-xs;
+  color: $gray-500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: $sp-xs;
+}
+
+
+// =========================
+// Spec grid
+// =========================
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $sp-sm;
+  @include md { grid-template-columns: 1fr; }
+}
+
+.spec-card {
+  padding: $sp-lg;
+  border: 1px solid rgba($white, 0.08);
+  border-radius: 10px;
+  background: rgba($white, 0.02);
+  transition: border-color $ease-fast, background $ease-fast;
+
+  &:hover {
+    border-color: rgba($white, 0.16);
+    background: rgba($white, 0.04);
+  }
+}
+
+.spec-card-label {
+  font-size: $fs-xs;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $gray-500;
+  margin-bottom: $sp-sm;
+}
+
+
+// =========================
+// Component grid
+// =========================
+
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $sp-xl $sp-2xl;
+  @include divider-top;
+  padding-top: $sp-xl;
+  @include md { grid-template-columns: 1fr; }
+}
+
+.component-col-title {
+  font-size: $fs-xs;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $gray-500;
+  margin-bottom: $sp-sm;
+  padding-bottom: $sp-sm;
+  @include divider-bottom;
+}
+
+.component-item {
+  font-size: $fs-sm;
+  color: $gray-300;
+  padding: $sp-xs 0;
+  display: flex;
+  align-items: center;
+  gap: $sp-sm;
+  border-bottom: 1px solid rgba($white, 0.03);
+  transition: color $ease-fast, padding-left $ease-normal;
+
+  &::before {
+    content: '';
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: $gray-700;
+    flex-shrink: 0;
+    transition: background $ease-fast;
+  }
+
+  &:hover {
+    color: $white;
+    padding-left: $sp-xs;
+    &::before { background: $primary; }
+  }
+}
+
+
+// =========================
+// Token block
+// =========================
+
+.token-block {
+  margin-bottom: $sp-2xl;
+  padding-bottom: $sp-2xl;
+  border-bottom: 1px solid rgba($white, 0.06);
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.token-title {
+  font-size: $fs-sm;
+  font-weight: 600;
+  color: $gray-300;
+  margin-bottom: $sp-lg;
+  letter-spacing: -0.01em;
+}
+
+
+// =========================
+// Color swatch
+// =========================
+
+.swatch-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $sp-sm;
+  align-items: flex-end;
+}
+
+.swatch-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-xs;
+}
+
+.swatch-block {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid rgba($white, 0.06);
+  transition: transform $ease-fast;
+  cursor: default;
+  &:hover { transform: scale(1.1); }
+}
+
+.swatch-label {
+  font-size: 9px;
+  color: $gray-500;
+  text-align: center;
+  line-height: 1.4;
+}
+
+
+// =========================
+// Typography
+// =========================
+
+.typo-list {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-xs;
+}
+
+.typo-item {
+  display: flex;
+  align-items: baseline;
+  gap: $sp-lg;
+  padding: $sp-md $sp-lg;
+  border: 1px solid rgba($white, 0.06);
+  border-radius: 8px;
+  background: rgba($white, 0.01);
+  transition: border-color $ease-fast;
+
+  &:hover { border-color: rgba($white, 0.12); }
+
+  @include md { flex-direction: column; gap: $sp-xs; }
+}
+
+.typo-meta {
+  font-size: $fs-xs;
+  color: $gray-500;
+  white-space: nowrap;
+  min-width: 110px;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+
+// =========================
+// Spacing
+// =========================
+
+.spacing-row {
+  display: flex;
+  align-items: flex-end;
+  gap: $sp-xl;
+  flex-wrap: wrap;
+}
+
+.spacing-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-sm;
+}
+
+.spacing-block {
+  background: $primary;
+  border-radius: 3px;
+  opacity: 0.6;
+}
+
+.spacing-label {
+  font-size: $fs-xs;
+  color: $gray-500;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+// =========================
+// Size
+// =========================
+
+.size-row {
+  display: flex;
+  align-items: flex-end;
+  gap: $sp-lg;
+  flex-wrap: wrap;
+}
+
+.size-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-sm;
+}
+
+.size-block {
+  background: $accent;
+  border-radius: 4px;
+  opacity: 0.6;
+}
+
+.size-label {
+  font-size: $fs-xs;
+  color: $gray-500;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+// =========================
+// Radius
+// =========================
+
+.radius-row {
+  display: flex;
+  align-items: center;
+  gap: $sp-xl;
+  flex-wrap: wrap;
+}
+
+.radius-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-sm;
+}
+
+.radius-block {
+  width: 52px;
+  height: 52px;
+  background: rgba($white, 0.06);
+  border: 1px solid rgba($white, 0.2);
+}
+
+.radius-label {
+  font-size: $fs-xs;
+  color: $gray-500;
+  text-align: center;
+}
+
+
+// =========================
+// Hero title muted em
+// =========================
+
+.page-hero-title-muted {
+  font-style: normal;
+  color: $gray-600;
+}
+
+
+// =========================
+// Code list (네이밍 규칙)
+// =========================
+
+.ds-code-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: $sp-xs;
+}
+
+.ds-code-item {
+  display: flex;
+  align-items: baseline;
+  gap: $sp-sm;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba($white, 0.04);
+  font-size: $fs-xs;
+
+  &:last-child { border-bottom: none; }
+}
+
+.ds-code-key {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  color: $primary;
+  flex-shrink: 0;
+  min-width: 140px;
+  font-size: 11px;
+}
+
+.ds-code-val {
+  color: $gray-500;
+  line-height: 1.5;
+}
+
+
+// =========================
+// File list
+// =========================
+
+.ds-file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: $sp-xs;
+}
+
+.ds-file-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: $sp-sm 0;
+  border-bottom: 1px solid rgba($white, 0.04);
+
+  &:last-child { border-bottom: none; }
+}
+
+.ds-file-item-highlight .ds-file-name {
+  color: $white;
+}
+
+.ds-file-name {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 11px;
+  color: $gray-300;
+}
+
+.ds-file-desc {
+  font-size: $fs-xs;
+  color: $gray-600;
+  line-height: 1.5;
+}
+
+
+// =========================
+// Preview block
+// =========================
+
+.ds-preview {
+  padding: $sp-xl;
+  border: 1px solid rgba($white, 0.06);
+  border-radius: 8px;
+  background: rgba($white, 0.01);
+  margin-bottom: $sp-lg;
+}
+
+.ds-preview-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ds-preview-logo {
+  font-size: $fs-md;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: $white;
+}
+
+.ds-preview-links {
+  display: flex;
+  gap: $sp-xl;
+}
+
+.ds-preview-link {
+  font-size: $fs-xs;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $white;
+  opacity: 0.4;
+
+  &.is-active { opacity: 1; }
+}
+
+
+// =========================
+// Icon grid
+// =========================
+
+.ds-icon-source {
+  font-size: $fs-xs;
+  color: $gray-500;
+  margin-bottom: $sp-xl;
+  line-height: 1.8;
+
+  code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: $primary;
+    font-size: 11px;
+  }
+}
+
+.ds-icon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $sp-sm;
+}
+
+.ds-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-xs;
+  padding: $sp-lg $sp-xl;
+  border: 1px solid rgba($white, 0.06);
+  border-radius: 8px;
+  background: rgba($white, 0.02);
+  min-width: 100px;
+  transition: border-color $ease-fast, background $ease-fast;
+
+  &:hover {
+    border-color: rgba($white, 0.12);
+    background: rgba($white, 0.04);
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+    opacity: 0.8;
+    margin-bottom: $sp-xs;
+  }
+
+  span {
+    font-size: $fs-xs;
+    color: $gray-400;
+    text-align: center;
+    line-height: 1.4;
+
+    &:first-of-type {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 10px;
+      color: $gray-300;
+    }
+  }
+}
+
+.ds-icon-usage {
+  font-size: 10px !important;
+  color: $gray-600 !important;
+}

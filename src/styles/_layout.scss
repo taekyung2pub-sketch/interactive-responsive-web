@@ -1,0 +1,364 @@
+// =========================
+// Page hero
+// =========================
+// .page-hero          — 공통 hero 래퍼 (70vh)
+// .page-hero-sm       — 작은 hero (60vh, work-detail)
+// .page-hero-label    — 상단 작은 레이블
+// .page-hero-title    — 대형 타이틀
+// .page-hero-desc     — 서브 설명
+// .page-hero-meta     — 태그/링크 묶음
+// .page-hero-back     — ← Back 링크
+
+%page-hero-base {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  @include divider-bottom;
+}
+
+.page-hero {
+  @extend %page-hero-base;
+  min-height: 70vh;
+  padding: 140px $sp-xl $sp-xl;
+  @include md { padding: 120px $sp-md $sp-lg; }
+}
+
+.page-hero-sm {
+  @extend %page-hero-base;
+  min-height: 60vh;
+  padding: 140px $sp-xl $sp-xl;
+  @include md {
+    padding: 120px $sp-md $sp-lg;
+    min-height: 50vh;
+  }
+}
+
+.page-hero-label {
+  font-size: $fs-xs;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $gray-500;
+  margin-bottom: $sp-md;
+}
+
+.page-hero-title {
+  font-size: clamp(48px, 8vw, 110px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.page-hero-title-lg {
+  font-size: clamp(40px, 7vw, 100px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin-bottom: $sp-xl;
+}
+
+.page-hero-desc {
+  font-size: $fs-sm;
+  color: $gray-400;
+  line-height: 1.9;
+  max-width: 480px;
+  margin-bottom: $sp-2xl;
+}
+
+.page-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: $sp-xl;
+  flex-wrap: wrap;
+  @include md { gap: $sp-md; }
+}
+
+.page-hero-back {
+  font-size: $fs-xs;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $gray-500;
+  margin-bottom: $sp-2xl;
+  display: inline-flex;
+  align-items: center;
+  gap: $sp-sm;
+  transition: color $ease-fast;
+  &:hover { color: $white; }
+}
+
+
+// =========================
+// Section
+// =========================
+// .section            — 공통 섹션 래퍼
+// .section-header     — 레이블 + 타이틀 묶음
+// .section-label      — 소형 레이블
+// .section-title      — 섹션 h2
+
+.section {
+  @include section-padding;
+  @include divider-bottom;
+}
+
+.section-header {
+  margin-bottom: $sp-xl;
+}
+
+.section-label {
+  font-size: $fs-xs;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $gray-500;
+}
+
+.section-title {
+  font-size: clamp($fs-xl, 3vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-top: $sp-sm;
+}
+
+
+// =========================
+// Two-column layout
+// =========================
+// .col2               — 1fr + 1.4fr 2단
+// .col2-sidebar       — 280px + 1fr (사이드바형)
+// .col2-left          — 좌측 컬럼
+// .col2-right         — 우측 컬럼
+
+.col2 {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  @include divider-bottom;
+  @include lg { grid-template-columns: 1fr; }
+}
+
+.col2-sidebar {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  @include divider-bottom;
+  @include lg { grid-template-columns: 1fr; }
+}
+
+.col2-left {
+  @include section-padding;
+  border-right: 1px solid rgba($white, 0.06);
+
+  @include lg {
+    border-right: none;
+    @include divider-bottom;
+  }
+}
+
+.col2-right {
+  @include section-padding;
+}
+
+
+// =========================
+// Sidebar
+// =========================
+// .sidebar            — sticky 사이드바
+// .sidebar-section    — 섹션 내 구분 블록
+// .sidebar-label      — 소형 레이블
+// .sidebar-desc       — 설명 텍스트
+// .sidebar-status     — 상태 텍스트
+// .sidebar-list       — 포커스 목록
+
+.sidebar {
+  @include section-padding;
+  border-right: 1px solid rgba($white, 0.06);
+  position: sticky;
+  top: 80px;
+  align-self: start;
+
+  @include lg {
+    position: static;
+    border-right: none;
+    @include divider-bottom;
+    padding: $sp-xl $sp-md;
+  }
+}
+
+.sidebar-section {
+  & + & {
+    margin-top: $sp-xl;
+    padding-top: $sp-xl;
+    @include divider-top;
+  }
+}
+
+.sidebar-label {
+  font-size: $fs-xs;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $gray-500;
+  margin-bottom: $sp-md;
+}
+
+.sidebar-desc {
+  font-size: $fs-sm;
+  color: $gray-400;
+  line-height: 1.8;
+}
+
+.sidebar-status {
+  font-size: $fs-sm;
+  font-weight: 500;
+  color: $primary;
+}
+
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-xs;
+
+  li {
+    font-size: $fs-xs;
+    color: $gray-400;
+    line-height: 1.6;
+    padding-left: $sp-sm;
+    position: relative;
+
+    &::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: $gray-600;
+    }
+  }
+}
+
+
+// =========================
+// Image area
+// =========================
+// .img-area           — 이미지 목록 래퍼
+// .img-item           — 개별 이미지 카드
+// .img-placeholder    — 이미지 없을 때 placeholder
+// .img-caption        — 이미지 설명
+
+.img-area {
+  @include section-padding;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-lg;
+  @include md { gap: $sp-md; }
+}
+
+.img-item {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: $gray-900;
+  border: 1px solid rgba($white, 0.06);
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.img-placeholder {
+  aspect-ratio: 16/9;
+  @include flex-center;
+  flex-direction: column;
+  gap: $sp-sm;
+  color: $gray-600;
+  font-size: $fs-xs;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.img-caption {
+  padding: $sp-sm $sp-md;
+  font-size: $fs-xs;
+  color: $gray-600;
+  @include divider-top;
+}
+
+
+// =========================
+// Work navigation
+// =========================
+// .work-nav           — prev/next 네비 래퍼
+// .work-nav-item      — 개별 항목
+// .work-nav-item.is-next     — 오른쪽 정렬
+// .work-nav-item.is-disabled — 비활성
+// .work-nav-label     — Prev / Next 레이블
+// .work-nav-title     — 프로젝트명
+
+.work-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @include divider-top;
+}
+
+.work-nav-item {
+  padding: $sp-xl;
+  border-right: 1px solid rgba($white, 0.06);
+  transition: background $ease-fast;
+  color: $gray-400;
+
+  &:last-child { border-right: none; }
+  &:hover { background: rgba($white, 0.03); color: $white; }
+
+  &.is-next { text-align: right; }
+  &.is-disabled { pointer-events: none; opacity: 0.3; }
+
+  @include md { padding: $sp-lg $sp-md; }
+}
+
+.work-nav-label {
+  font-size: $fs-xs;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $gray-600;
+  margin-bottom: $sp-sm;
+}
+
+.work-nav-title {
+  font-size: $fs-md;
+  font-weight: 600;
+}
+
+
+// =========================
+// Stats row
+// =========================
+// .stats-row          — 통계 가로 나열
+// .stats-row-3        — 3등분
+// .stats-item         — 개별 항목
+// .stats-num          — 숫자
+// .stats-label        — 레이블
+
+.stats-row {
+  display: grid;
+  @include divider-bottom;
+}
+
+.stats-row-3 { grid-template-columns: repeat(3, 1fr); }
+
+.stats-item {
+  padding: $sp-xl;
+  border-right: 1px solid rgba($white, 0.06);
+  &:last-child { border-right: none; }
+  @include md { padding: $sp-lg $sp-md; }
+}
+
+.stats-num {
+  font-size: clamp($fs-2xl, 4vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: $sp-xs;
+  transition: color 0.3s ease;
+}
+
+.stats-label {
+  font-size: $fs-xs;
+  color: $gray-500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

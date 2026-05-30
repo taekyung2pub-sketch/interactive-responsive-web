@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — 이태경</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="/src/styles/about.scss" />
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">TK.</a>
+  <ul class="nav-links">
+    <li><a href="/" class="nav-link">Home</a></li>
+    <li><a href="/about.html" class="nav-link is-active">About</a></li>
+    <li><a href="/design-system/" class="nav-link">System</a></li>
+  </ul>
+  <button class="nav-menu-btn" id="navMenuBtn" aria-label="메뉴 열기">
+    <img src="/src/assets/icons/menu.svg" class="nav-menu-btn-open" alt="" aria-hidden="true" />
+  </button>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-lnb" id="navLnb">
+  <button class="nav-lnb-close" id="navLnbClose" aria-label="메뉴 닫기">
+    <img src="/src/assets/icons/close.svg" alt="" aria-hidden="true" />
+  </button>
+  <a href="/" class="nav-lnb-link">Home</a>
+  <a href="/about.html" class="nav-lnb-link is-active">About</a>
+  <a href="/design-system/" class="nav-lnb-link">System</a>
+</nav>
+
+<!-- Hero -->
+<section class="page-hero">
+  <p class="page-hero-label">Frontend Publisher · Seoul, KR</p>
+  <h1 class="page-hero-title">About</h1>
+</section>
+
+<!-- Intro + Strengths -->
+<div class="col2">
+  <div class="col2-left">
+    <p class="section-label">Who I am</p>
+    <h2 class="intro-title">
+      구조와 흐름을<br />고민하며 일합니다.
+    </h2>
+    <p class="intro-desc">
+      마케팅 직무에서 시작된<br />
+      소통과 구조에 대한 고민이<br />
+      웹 퍼블리싱으로 이어졌습니다.
+    </p>
+    <p class="intro-desc">
+      단순 구현보다 사용자 경험,<br />
+      협업 흐름까지 함께 설계하는 일을<br />
+      중요하게 생각합니다.
+    </p>
+    <p class="intro-desc">
+      현재는 컴포넌트 구조와<br />
+      디자인 시스템, 인터랙션 구현에 집중하며<br />
+      디자인과 개발 사이의 언어를 씁니다.
+    </p>
+  </div>
+  <div class="col2-right">
+    <p class="section-label">Strengths</p>
+    <div class="strength-list">
+      <div class="strength-item u-fade">
+        <div class="strength-header">
+          <span class="strength-num">01</span>
+          <h3 class="strength-title">협업 & 커뮤니케이션</h3>
+        </div>
+        <p class="strength-desc">
+          디자인팀, 개발팀과의 소통으로<br />
+          컴포넌트 방향을 조율하고<br />
+          팀 전체의 협업 구조를 함께 만들어왔습니다.
+        </p>
+      </div>
+      <div class="strength-item u-fade">
+        <div class="strength-header">
+          <span class="strength-num">02</span>
+          <h3 class="strength-title">구조화 감각</h3>
+        </div>
+        <p class="strength-desc">
+          검증된 사례를 수집하고<br />
+          실제 맥락에 맞게 재조합합니다.<br />
+          공통 컴포넌트 설계와 스타일 시스템 방향성을<br />
+          리서치해 팀 내 공유한 경험이 있습니다.
+        </p>
+      </div>
+      <div class="strength-item u-fade">
+        <div class="strength-header">
+          <span class="strength-num">03</span>
+          <h3 class="strength-title">AI 활용 & 적응력</h3>
+        </div>
+        <p class="strength-desc">
+          여러 AI를 교차 검증하며<br />
+          반복 작업을 자동화하고 속도를 최적화합니다.<br />
+          코드를 읽고 맥락을 파악하는 방식으로 활용하며<br />
+          새로운 환경을 빠르게 흡수합니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Direction -->
+<section class="section">
+  <p class="section-label">Direction</p>
+  <div class="direction-grid">
+    <div class="direction-item u-fade">
+      <img src="/src/assets/icons/arrow-right.svg" class="direction-icon" alt="" aria-hidden="true" />
+      <p class="direction-text">UI 개발자 / 디자인 시스템 구축</p>
+    </div>
+    <div class="direction-item u-fade">
+      <img src="/src/assets/icons/arrow-right.svg" class="direction-icon" alt="" aria-hidden="true" />
+      <p class="direction-text">인터랙션 · 모션 특화</p>
+    </div>
+    <div class="direction-item u-fade">
+      <img src="/src/assets/icons/arrow-right.svg" class="direction-icon" alt="" aria-hidden="true" />
+      <p class="direction-text">접근성 / 웹표준 강점</p>
+    </div>
+    <div class="direction-item u-fade">
+      <img src="/src/assets/icons/arrow-right.svg" class="direction-icon" alt="" aria-hidden="true" />
+      <p class="direction-text">프로덕트 중심 FE · 하이브리드 퍼블리셔</p>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-row stats-row-3">
+  <div class="stats-item u-fade">
+    <p class="stats-num">4Y</p>
+    <p class="stats-label">Experience</p>
+  </div>
+  <div class="stats-item u-fade">
+    <p class="stats-num">11+</p>
+    <p class="stats-label">Projects</p>
+  </div>
+  <div class="stats-item u-fade">
+    <p class="stats-num">6+</p>
+    <p class="stats-label">Stacks</p>
+  </div>
+</div>
+
+<!-- Skills + Career -->
+<div class="col2-sidebar">
+  <div class="col2-left">
+    <p class="skills-label">Skills</p>
+    <div class="skills-group">
+      <p class="skills-group-label">Languages</p>
+      <div class="tag-group">
+        <span class="tag tag-lang">HTML</span>
+        <span class="tag tag-lang">SCSS</span>
+        <span class="tag tag-lang">JavaScript</span>
+        <span class="tag tag-lang">TypeScript</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <p class="skills-group-label">Frameworks</p>
+      <div class="tag-group">
+        <span class="tag tag-fw">React</span>
+        <span class="tag tag-fw">Next.js</span>
+        <span class="tag tag-fw">Vue 3</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <p class="skills-group-label">Libraries & Tools</p>
+      <div class="tag-group">
+        <span class="tag tag-tool">styled-components</span>
+        <span class="tag tag-tool">jQuery</span>
+        <span class="tag tag-tool">Handlebars</span>
+        <span class="tag tag-tool">shadcn/ui</span>
+        <span class="tag tag-tool">EJS</span>
+        <span class="tag tag-tool">Vite</span>
+        <span class="tag tag-tool">Storybook</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col2-right">
+    <p class="career-label">Career · 4년차</p>
+    <div class="career-list">
+      <div class="career-item u-fade">
+        <div class="career-period">2025.10 — 2026.02</div>
+        <div>
+          <p class="career-project">신세계백화점 이벤트/카탈로그 운영 지원</p>
+          <div class="tag-group">
+            <span class="tag tag-lang">HTML</span>
+            <span class="tag tag-lang">SCSS</span>
+            <span class="tag tag-lang">JavaScript</span>
+          </div>
+        </div>
+      </div>
+      <div class="career-item u-fade">
+        <div class="career-period">2025.10 — 2025.12</div>
+        <div>
+          <p class="career-project">신세계백화점 리워드 2.0 신백머니 리뉴얼</p>
+          <div class="tag-group">
+            <span class="tag tag-fw">React</span>
+            <span class="tag tag-fw">Next.js</span>
+            <span class="tag tag-lang">TypeScript</span>
+            <span class="tag tag-tool">styled-components</span>
+          </div>
+        </div>
+      </div>
+      <div class="career-item u-fade">
+        <div class="career-period">2025.06 — 2025.10</div>
+        <div>
+          <p class="career-project">신세계백화점 트래블 서비스 App 구축</p>
+          <div class="tag-group">
+            <span class="tag tag-lang">HTML</span>
+            <span class="tag tag-lang">SCSS</span>
+            <span class="tag tag-lang">JavaScript</span>
+            <span class="tag tag-tool">EJS</span>
+          </div>
+        </div>
+      </div>
+      <div class="career-item u-fade">
+        <div class="career-period">2025.02 — 2025.06</div>
+        <div>
+          <p class="career-project">신세계백화점 리워드 2.0 App 리뉴얼</p>
+          <div class="tag-group">
+            <span class="tag tag-fw">React</span>
+            <span class="tag tag-fw">Next.js</span>
+            <span class="tag tag-lang">TypeScript</span>
+            <span class="tag tag-tool">styled-components</span>
+          </div>
+        </div>
+      </div>
+      <div class="career-item u-fade">
+        <div class="career-period">2025.01</div>
+        <div>
+          <p class="career-project">Aster 글로벌 AI Agent 랜딩 페이지</p>
+          <div class="tag-group">
+            <span class="tag tag-fw">React</span>
+            <span class="tag tag-lang">TypeScript</span>
+            <span class="tag tag-lang">SCSS</span>
+          </div>
+        </div>
+      </div>
+      <div class="career-item u-fade">
+        <div class="career-period">2024.12 — 2025.03</div>
+        <div>
+          <p class="career-project">휴젤 폐쇄몰 Web/App 구축</p>
+          <div class="tag-group">
+            <span class="tag tag-fw">Vue 3</span>
+            <span class="tag tag-lang">TypeScript</span>
+            <span class="tag tag-lang">SCSS</span>
+          </div>
+        </div>
+      </div>
+      <div class="career-item u-fade">
+        <div class="career-period">2024.07 — 2024.12</div>
+        <div>
+          <p class="career-project">세븐일레븐 App 구축</p>
+          <div class="tag-group">
+            <span class="tag tag-fw">Vue 3</span>
+            <span class="tag tag-lang">TypeScript</span>
+            <span class="tag tag-tool">shadcn/ui</span>
+          </div>
+        </div>
+      </div>
+      <div class="career-item u-fade">
+        <div class="career-period">2024.03 — 2024.07</div>
+        <div>
+          <p class="career-project">데상트 Web/App 구축</p>
+          <div class="tag-group">
+            <span class="tag tag-lang">HTML</span>
+            <span class="tag tag-lang">SCSS</span>
+            <span class="tag tag-lang">JavaScript</span>
+            <span class="tag tag-tool">Handlebars</span>
+          </div>
+        </div>
+      </div>
+      <div class="career-item u-fade">
+        <div class="career-period">2024.01 — 2024.03</div>
+        <div>
+          <p class="career-project">사내 홈페이지 구축</p>
+          <div class="tag-group">
+            <span class="tag tag-fw">Vue 3</span>
+            <span class="tag tag-lang">TypeScript</span>
+            <span class="tag tag-lang">SCSS</span>
+          </div>
+        </div>
+      </div>
+      <div class="career-item u-fade">
+        <div class="career-period">2023.11 — 2024.01</div>
+        <div>
+          <p class="career-project">구구스 Web/App 구축</p>
+          <div class="tag-group">
+            <span class="tag tag-lang">HTML</span>
+            <span class="tag tag-lang">SCSS</span>
+            <span class="tag tag-tool">jQuery</span>
+          </div>
+        </div>
+      </div>
+      <div class="career-item u-fade">
+        <div class="career-period">2023.04 — 2023.10</div>
+        <div>
+          <p class="career-project">크리스몰 Web/App 구축</p>
+          <div class="tag-group">
+            <span class="tag tag-lang">HTML</span>
+            <span class="tag tag-lang">SCSS</span>
+            <span class="tag tag-tool">jQuery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact -->
+<section class="contact">
+  <h2 class="contact-title">Let's<br />Connect.</h2>
+  <div class="contact-list">
+    <a href="mailto:taekyung2pub@gmail.com" class="contact-item">
+      <div>
+        <p class="contact-type">Email</p>
+        <p class="contact-value">taekyung2pub@gmail.com</p>
+      </div>
+      <img src="/src/assets/icons/arrow-up-right.svg" class="contact-arrow" alt="" aria-hidden="true" />
+    </a>
+    <a href="https://github.com/taekyung2pub-sketch" target="_blank" class="contact-item">
+      <div>
+        <p class="contact-type">GitHub</p>
+        <p class="contact-value">taekyung2pub-sketch</p>
+      </div>
+      <img src="/src/assets/icons/arrow-up-right.svg" class="contact-arrow" alt="" aria-hidden="true" />
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p class="footer-copy">©2026 이태경</p>
+  <ul class="footer-links">
+    <li>
+      <a href="mailto:taekyung2pub@gmail.com" class="footer-link">
+        <img src="/src/assets/icons/mail.svg" alt="" aria-hidden="true" />
+        Email
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/taekyung2pub-sketch" target="_blank" class="footer-link">
+        <img src="/src/assets/icons/github.svg" alt="" aria-hidden="true" />
+        GitHub
+      </a>
+    </li>
+  </ul>
+</footer>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<script type="module" src="/src/js/about.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+@import 'variables';
+@import 'reset';
+@import 'layout';
+@import 'common';
+
+// work-detail 페이지는 공통 구조만으로 커버됩니다:
+//   .nav  .nav-logo  .nav-links  .nav-link
+//   .page-hero-sm  .page-hero-back  .page-hero-title-lg
+//   .page-hero-meta  .text-link  .text-link.is-disabled
+//   .tag  .tag-lang  .tag-fw  .tag-tool  .tag-group
+//   .col2-sidebar
+//   .sidebar  .sidebar-section  .sidebar-label
+//   .sidebar-desc  .sidebar-status  .sidebar-list
+//   .img-area  .img-item  .img-placeholder  .img-caption
+//   .work-nav  .work-nav-item  .work-nav-item.is-next
+//   .work-nav-item.is-disabled  .work-nav-label  .work-nav-title
+//   .footer  .footer-copy  .footer-links  .footer-link
+//
+// 페이지 고유 스타일이 생기면 여기에 추가하세요.

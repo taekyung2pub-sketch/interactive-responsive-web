@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Component System — 이태경</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="/src/styles/work-detail.scss" />
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">TK.</a>
+  <ul class="nav-links">
+    <li><a href="/" class="nav-link">Home</a></li>
+    <li><a href="/about.html" class="nav-link">About</a></li>
+    <li><a href="/design-system/" class="nav-link">System</a></li>
+  </ul>
+  <button class="nav-menu-btn" id="navMenuBtn" aria-label="메뉴 열기">
+    <img src="/src/assets/icons/menu.svg" class="nav-menu-btn-open" alt="" aria-hidden="true" />
+  </button>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-lnb" id="navLnb">
+  <button class="nav-lnb-close" id="navLnbClose" aria-label="메뉴 닫기">
+    <img src="/src/assets/icons/close.svg" alt="" aria-hidden="true" />
+  </button>
+  <a href="/" class="nav-lnb-link">Home</a>
+  <a href="/about.html" class="nav-lnb-link">About</a>
+  <a href="/design-system/" class="nav-lnb-link">System</a>
+</nav>
+
+<section class="page-hero-sm">
+  <a href="/" class="page-hero-back"><img src="/src/assets/icons/arrow-left.svg" alt="" aria-hidden="true" /> Back</a>
+  <h1 class="page-hero-title-lg">Vue<br />Component<br />System</h1>
+  <div class="page-hero-meta">
+    <span class="text-link is-disabled">Planned</span>
+    <div class="tag-group">
+      <span class="tag tag-fw">Vue 3</span>
+      <span class="tag tag-fw">Nuxt</span>
+      <span class="tag tag-lang">TypeScript</span>
+      <span class="tag tag-tool">Storybook</span>
+      <span class="tag tag-lang">SCSS</span>
+    </div>
+  </div>
+</section>
+
+<div class="col2-sidebar">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <p class="sidebar-label">Overview</p>
+      <p class="sidebar-desc">
+        Vue 3 Composition API 기반 컴포넌트 시스템.<br />
+        프레임워크 적응력과 반복 UI 관리,<br />
+        실무형 구조를 목표로 합니다.
+      </p>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Focus</p>
+      <ul class="sidebar-list">
+        <li>Vue 3 Composition API 활용</li>
+        <li>프레임워크 적응력 증명</li>
+        <li>React 시스템과 동일 토큰 공유</li>
+        <li>실무형 디렉토리 구조</li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Status</p>
+      <p class="sidebar-status" style="color:#a1a1aa;">Planned</p>
+    </div>
+  </aside>
+
+  <div class="img-area">
+    <div class="img-item">
+      <div class="img-placeholder" style="background:#b8c4d4;">Coming Soon</div>
+      <p class="img-caption">작업 예정입니다.</p>
+    </div>
+  </div>
+</div>
+
+<nav class="work-nav">
+  <a href="/work/react-app.html" class="work-nav-item">
+    <p class="work-nav-label"><img src="/src/assets/icons/arrow-left.svg" alt="" aria-hidden="true" /> Prev</p>
+    <p class="work-nav-title">React Service Flow</p>
+  </a>
+  <a href="/work/portfolio.html" class="work-nav-item is-next">
+    <p class="work-nav-label">Next <img src="/src/assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></p>
+    <p class="work-nav-title">Interactive Web</p>
+  </a>
+</nav>
+
+<footer class="footer">
+  <p class="footer-copy">©2026 이태경</p>
+  <ul class="footer-links">
+    <li><a href="mailto:taekyung2pub@gmail.com" class="footer-link"><img src="/src/assets/icons/mail.svg" alt="" aria-hidden="true" /> Email</a></li>
+    <li><a href="https://github.com/taekyung2pub-sketch" target="_blank" class="footer-link"><img src="/src/assets/icons/github.svg" alt="" aria-hidden="true" /> GitHub</a></li>
+  </ul>
+</footer>
+
+<script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

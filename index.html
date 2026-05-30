@@ -1,14 +1,127 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Responsive Web</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이태경 — Portfolio</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="/src/styles/index.scss" />
 </head>
 <body>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="assets/js/main.js"></script>
+<nav class="nav">
+  <a href="/" class="nav-logo is-active">TK.</a>
+  <ul class="nav-links">
+    <li><a href="/" class="nav-link is-active">Home</a></li>
+    <li><a href="/about.html" class="nav-link">About</a></li>
+    <li><a href="/design-system/" class="nav-link">System</a></li>
+  </ul>
+  <button class="nav-menu-btn" id="navMenuBtn" aria-label="메뉴 열기">
+    <img src="/src/assets/icons/menu.svg" alt="" aria-hidden="true" />
+  </button>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav-lnb" id="navLnb">
+  <button class="nav-lnb-close" id="navLnbClose" aria-label="메뉴 닫기">
+    <img src="/src/assets/icons/close.svg" alt="" aria-hidden="true" />
+  </button>
+  <a href="/" class="nav-lnb-link is-active">Home</a>
+  <a href="/about.html" class="nav-lnb-link">About</a>
+  <a href="/design-system/" class="nav-lnb-link">System</a>
+</nav>
+
+<div class="layout" id="layout">
+
+  <div class="layout-top">
+
+    <div class="featured-swiper" id="featuredSwiper">
+      <div class="featured-slide is-active" style="background:#c8b8a2;">
+        <span class="featured-slide-label">React Component System</span>
+      </div>
+      <div class="featured-slide" style="background:#a8c4bc;">
+        <span class="featured-slide-label">React App</span>
+      </div>
+      <div class="featured-slide" style="background:#b8c4d4;">
+        <span class="featured-slide-label">Vue Component System</span>
+      </div>
+      <div class="featured-slide" style="background:#d4c4a8;">
+        <span class="featured-slide-label">Portfolio</span>
+      </div>
+      <button class="featured-prev" id="featuredPrev"><img src="/src/assets/icons/arrow-left.svg" alt="" aria-hidden="true" /> Prev</button>
+      <button class="featured-next" id="featuredNext">Next <img src="/src/assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></button>
+    </div>
+
+    <div class="index-track" id="indexTrack">
+      <a href="/work/react-component-system.html" class="index-slide">
+        <div class="index-slide-thumb" style="background:#c8b8a2;">
+          <span>React Component System</span>
+        </div>
+        <div class="index-slide-info">
+          <span class="index-slide-num">(01)</span>
+          <span class="index-slide-name">React Component System</span>
+        </div>
+      </a>
+      <a href="/work/react-app.html" class="index-slide">
+        <div class="index-slide-thumb" style="background:#a8c4bc;">
+          <span>React App</span>
+        </div>
+        <div class="index-slide-info">
+          <span class="index-slide-num">(02)</span>
+          <span class="index-slide-name">React App</span>
+        </div>
+      </a>
+      <a href="/work/vue-component-system.html" class="index-slide">
+        <div class="index-slide-thumb" style="background:#b8c4d4;">
+          <span>Vue Component System</span>
+        </div>
+        <div class="index-slide-info">
+          <span class="index-slide-num">(03)</span>
+          <span class="index-slide-name">Vue Component System</span>
+        </div>
+      </a>
+      <a href="/work/portfolio.html" class="index-slide">
+        <div class="index-slide-thumb" style="background:#d4c4a8;">
+          <span>Portfolio</span>
+        </div>
+        <div class="index-slide-info">
+          <span class="index-slide-num">(04)</span>
+          <span class="index-slide-name">Portfolio</span>
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="view-bar">
+    <div class="view-bar-line"></div>
+    <button class="view-bar-btn" id="toggleBtn" aria-label="Toggle view">
+      <span class="btn-icon" id="btnIcon">
+        <img src="/src/assets/icons/square.svg" class="btn-icon-square" alt="" aria-hidden="true" />
+        <img src="/src/assets/icons/columns-3.svg" class="btn-icon-list" alt="" aria-hidden="true" />
+      </span>
+    </button>
+    <div class="view-bar-line"></div>
+  </div>
+
+  <div class="layout-bottom">
+    <div class="featured-bottom" id="featuredBottom">
+      <div class="featured-title-inner" id="featuredTitleInner">
+        <span class="featured-num" id="featuredNum">(01)</span>
+        <a class="featured-title" id="featuredTitle" href="/work/react-component-system.html">React Component System</a>
+      </div>
+    </div>
+    <footer class="index-footer" id="indexFooter">
+      <p>©2026</p>
+      <div>
+        <a href="mailto:taekyung2pub@gmail.com"><img src="/src/assets/icons/mail.svg" alt="" aria-hidden="true" /> Email</a>
+        <a href="https://github.com/taekyung2pub-sketch" target="_blank"><img src="/src/assets/icons/github.svg" alt="" aria-hidden="true" /> GitHub</a>
+      </div>
+    </footer>
+  </div>
+
+</div>
+
+<script type="module" src="/src/js/index.js"></script>
 </body>
 </html>
