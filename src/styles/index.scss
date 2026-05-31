@@ -1,6 +1,6 @@
-@import 'variables';
-@import 'reset';
-@import 'common';
+@use 'variables' as *;
+@use 'reset';
+@use 'common';
 
 // index 페이지는 풀스크린 레이아웃으로 _layout.scss 를 사용하지 않습니다.
 

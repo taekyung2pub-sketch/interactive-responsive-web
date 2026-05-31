@@ -1,7 +1,7 @@
-@import 'variables';
-@import 'reset';
-@import 'layout';
-@import 'common';
+@use 'variables' as *;
+@use 'reset';
+@use 'layout';
+@use 'common';
 
 // work-detail 페이지는 공통 구조만으로 커버됩니다:
 //   .nav  .nav-logo  .nav-links  .nav-link
