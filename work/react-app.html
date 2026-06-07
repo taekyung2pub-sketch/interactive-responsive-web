@@ -15,10 +15,10 @@
   <ul class="nav-links">
     <li><a href="/" class="nav-link">Home</a></li>
     <li><a href="/about.html" class="nav-link">About</a></li>
-    <li><a href="/design-system/" class="nav-link">System</a></li>
+    <li><a href="/design-system/index.html" class="nav-link">System</a></li>
   </ul>
   <button class="nav-menu-btn" id="navMenuBtn" aria-label="메뉴 열기">
-    <img src="/src/assets/icons/menu.svg" class="nav-menu-btn-open" alt="" aria-hidden="true" />
+    <img src="/src/assets/icons/menu.svg" alt="" aria-hidden="true" />
   </button>
 </nav>
 <div class="nav-overlay" id="navOverlay"></div>
@@ -28,18 +28,21 @@
   </button>
   <a href="/" class="nav-lnb-link">Home</a>
   <a href="/about.html" class="nav-lnb-link">About</a>
-  <a href="/design-system/" class="nav-lnb-link">System</a>
+  <a href="/design-system/index.html" class="nav-lnb-link">System</a>
 </nav>
 
 <section class="page-hero-sm">
   <a href="/" class="page-hero-back"><img src="/src/assets/icons/arrow-left.svg" alt="" aria-hidden="true" /> Back</a>
   <h1 class="page-hero-title-lg">React<br />Service<br />Flow</h1>
   <div class="page-hero-meta">
-    <span class="text-link is-disabled">In Progress</span>
+    <a href="https://react-app-snowy-six.vercel.app/" target="_blank" class="text-link">
+      View App <img src="/src/assets/icons/arrow-up-right.svg" alt="" aria-hidden="true" />
+    </a>
     <div class="tag-group">
-      <span class="tag tag-fw">Next.js</span>
+      <span class="tag tag-fw">React</span>
       <span class="tag tag-lang">TypeScript</span>
-      <span class="tag tag-lang">SCSS</span>
+      <span class="tag tag-tool">styled-components</span>
+      <span class="tag tag-tool">Vite</span>
     </div>
   </div>
 </section>
@@ -49,31 +52,78 @@
     <div class="sidebar-section">
       <p class="sidebar-label">Overview</p>
       <p class="sidebar-desc">
-        페이지 흐름 설계와 공통 컴포넌트 활용,<br />
-        실제 서비스처럼 느껴지는 UX를 목표로<br />
-        구현하는 React 기반 앱입니다.
+        직접 설계한 React Component System 위에<br />
+        실제 서비스 수준의 모바일 쇼핑몰을 구현했습니다.<br />
+        7개 페이지, 컴포넌트 조립형 구조,<br />
+        props 설계부터 Portal·상태 관리까지<br />
+        시스템 레벨의 결정을 직접 담당했습니다.
       </p>
     </div>
     <div class="sidebar-section">
       <p class="sidebar-label">Focus</p>
       <ul class="sidebar-list">
-        <li>페이지 흐름 설계</li>
-        <li>공통 컴포넌트 조립형 활용</li>
-        <li>실제 서비스 수준의 UX</li>
-        <li>React Component System 연동</li>
+        <li>컴포넌트 시스템 기반 페이지 조립</li>
+        <li>props 설계 — variant, controlled, Portal</li>
+        <li>오버레이 UX — BottomSheet 드래그, 스크롤 잠금</li>
+        <li>Swiper 드래그 중 링크 클릭 방지</li>
+        <li>Mock Data 구조 분리 관리</li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">Pages</p>
+      <ul class="sidebar-list">
+        <li>Home</li>
+        <li>Search</li>
+        <li>ProductList</li>
+        <li>ProductDetail</li>
+        <li>Community</li>
+        <li>CommunityDetail</li>
+        <li>MyPage</li>
       </ul>
     </div>
     <div class="sidebar-section">
       <p class="sidebar-label">Status</p>
-      <p class="sidebar-status" style="color:#a1a1aa;">In Progress</p>
+      <p class="sidebar-status">Done</p>
     </div>
   </aside>
 
   <div class="img-area">
+
     <div class="img-item">
-      <div class="img-placeholder" style="background:#a8c4bc;">Coming Soon</div>
-      <p class="img-caption">작업 중입니다.</p>
+      <img src="/src/assets/images/react-app-01.png" alt="Home 페이지" />
+      <p class="img-caption">Home — 히어로 배너 Swiper, 카테고리 탭, Best·New·Sale 상품 섹션, 프로모션 배너, 매거진 피드</p>
     </div>
+
+    <div class="img-item">
+      <img src="/src/assets/images/react-app-02.png" alt="Search 페이지" />
+      <p class="img-caption">Search — 실시간 상품명 필터링, 최근 검색어 관리, 추천 상품 Swiper, 결과 없을 때 EmptyState 처리</p>
+    </div>
+
+    <div class="img-item">
+      <img src="/src/assets/images/react-app-03.png" alt="ProductList 페이지" />
+      <p class="img-caption">ProductList — 카테고리 탭 필터, 정렬, 더보기 페이지네이션, PopFilter 팝업</p>
+    </div>
+
+    <div class="img-item">
+      <img src="/src/assets/images/react-app-04.png" alt="ProductDetail 페이지" />
+      <p class="img-caption">ProductDetail — 이미지 Swiper, 상품 정보, 찜하기 토글, 장바구니 담기 BottomSheet(옵션 선택). Portal로 AppLayout 안에 고정 렌더링.</p>
+    </div>
+
+    <div class="img-item">
+      <img src="/src/assets/images/react-app-05.png" alt="Community 페이지" />
+      <p class="img-caption">Community — MD's Pick 풀 Swiper, 이벤트 배너, 매거진 2열 그리드 더보기</p>
+    </div>
+
+    <div class="img-item">
+      <img src="/src/assets/images/react-app-06.png" alt="CommunityDetail 페이지" />
+      <p class="img-caption">CommunityDetail — 게시글 본문, 좋아요, 댓글 CRUD(내 댓글 삭제), Textarea 입력</p>
+    </div>
+
+    <div class="img-item">
+      <img src="/src/assets/images/react-app-07.png" alt="MyPage" />
+      <p class="img-caption">MyPage — 프로필, 주문·주소록·알림설정 Accordion, 배송조회·리뷰작성 팝업</p>
+    </div>
+
   </div>
 </div>
 
@@ -82,9 +132,9 @@
     <p class="work-nav-label"><img src="/src/assets/icons/arrow-left.svg" alt="" aria-hidden="true" /> Prev</p>
     <p class="work-nav-title">React Component System</p>
   </a>
-  <a href="/work/vue-component-system.html" class="work-nav-item is-next">
+  <a href="/work/coming-soon.html" class="work-nav-item is-next">
     <p class="work-nav-label">Next <img src="/src/assets/icons/arrow-right.svg" alt="" aria-hidden="true" /></p>
-    <p class="work-nav-title">Vue Component System</p>
+    <p class="work-nav-title">Coming Soon</p>
   </a>
 </nav>
 

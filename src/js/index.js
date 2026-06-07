@@ -13,12 +13,12 @@ document.getElementById('navOverlay')?.addEventListener('click', () => {
 
 const SLIDES = [
   { num: '(01)', title: 'React Component System', href: '/work/react-component-system.html' },
-  { num: '(02)', title: 'React App',               href: '/work/react-app.html' },
-  { num: '(03)', title: 'Vue Component System',    href: '/work/vue-component-system.html' },
-  { num: '(04)', title: 'Portfolio',               href: '/work/portfolio.html' },
+  { num: '(02)', title: 'React Service Flow',      href: '/work/react-app.html' },
+  { num: '(03)', title: 'Portfolio',               href: '/work/portfolio.html' },
+  { num: '(04)', title: 'Coming Soon',             href: '/work/coming-soon.html' },
 ];
 
-const TOTAL  = SLIDES.length;
+const TOTAL   = SLIDES.length;
 const realIdx = (n) => ((n % TOTAL) + TOTAL) % TOTAL;
 
 
@@ -26,17 +26,16 @@ const realIdx = (n) => ((n % TOTAL) + TOTAL) % TOTAL;
 // Elements
 // =========================
 
-const featuredSlides    = document.querySelectorAll('.featured-slide');
-const featuredNum       = document.getElementById('featuredNum');
-const featuredTitle     = document.getElementById('featuredTitle');
+const featuredSlides     = document.querySelectorAll('.featured-slide');
+const featuredNum        = document.getElementById('featuredNum');
+const featuredTitle      = document.getElementById('featuredTitle');
 const featuredTitleInner = document.getElementById('featuredTitleInner');
-const featuredPrev      = document.getElementById('featuredPrev');
-const featuredNext      = document.getElementById('featuredNext');
-const layout            = document.getElementById('layout');
-const toggleBtn         = document.getElementById('toggleBtn');
-const btnIcon           = document.getElementById('btnIcon');
-const indexTrackEl      = document.getElementById('indexTrack');
-const indexSlides       = document.querySelectorAll('.index-slide');
+const featuredPrev       = document.getElementById('featuredPrev');
+const featuredNext       = document.getElementById('featuredNext');
+const layout             = document.getElementById('layout');
+const toggleBtn          = document.getElementById('toggleBtn');
+const indexTrackEl       = document.getElementById('indexTrack');
+const indexSlides        = document.querySelectorAll('.index-slide');
 
 
 // =========================
@@ -64,7 +63,7 @@ const animateTitle = (idx) => {
     featuredTitleInner.style.transform  = 'translateY(60%)';
     featuredTitleInner.style.opacity    = '0';
 
-    featuredTitleInner.offsetHeight; // reflow
+    featuredTitleInner.offsetHeight;
 
     featuredTitleInner.style.transition = `transform ${TITLE_DURATION}ms ${TITLE_EASE}, opacity ${TITLE_DURATION}ms ${TITLE_EASE}`;
     featuredTitleInner.style.transform  = 'translateY(0)';
@@ -134,15 +133,17 @@ window.addEventListener('touchend', e => {
 const originalCount = indexSlides.length;
 
 const cloneAppend = () => {
-  for (let i = originalCount - 1; i >= 0; i--) {
-    const clone = indexSlides[i].cloneNode(true);
-    clone.classList.add('is-clone');
-    indexTrackEl.insertBefore(clone, indexTrackEl.firstChild);
-  }
+  // append 먼저
   for (let i = 0; i < originalCount; i++) {
     const clone = indexSlides[i].cloneNode(true);
     clone.classList.add('is-clone');
     indexTrackEl.appendChild(clone);
+  }
+  // prepend 나중
+  for (let i = originalCount - 1; i >= 0; i--) {
+    const clone = indexSlides[i].cloneNode(true);
+    clone.classList.add('is-clone');
+    indexTrackEl.insertBefore(clone, indexTrackEl.firstChild);
   }
 };
 
@@ -158,22 +159,54 @@ let isJumping = false;
 indexTrackEl?.addEventListener('scroll', () => {
   if (isJumping) return;
 
-  const sw            = slideW();
-  const totalOriginalW = sw * originalCount;
-  const scrollL       = indexTrackEl.scrollLeft;
+  const sw       = slideW();
+  const totalW   = sw * originalCount;
+  const scrollL  = indexTrackEl.scrollLeft;
+  const minBound = sw;
+  const maxBound = sw * (originalCount * 2 - 1);
 
-  if (scrollL < sw * (originalCount - 1)) {
+  if (scrollL < minBound) {
     isJumping = true;
-    indexTrackEl.scrollLeft = scrollL + totalOriginalW;
+    indexTrackEl.scrollLeft = scrollL + totalW;
     setTimeout(() => { isJumping = false; }, 50);
-  }
-
-  if (scrollL > sw * (originalCount * 2 - 1)) {
+  } else if (scrollL > maxBound) {
     isJumping = true;
-    indexTrackEl.scrollLeft = scrollL - totalOriginalW;
+    indexTrackEl.scrollLeft = scrollL - totalW;
     setTimeout(() => { isJumping = false; }, 50);
   }
 }, { passive: true });
+
+
+// =========================
+// Index track — 마우스 드래그 (PC)
+// =========================
+
+let isDragging     = false;
+let dragStartX     = 0;
+let dragScrollLeft = 0;
+
+indexTrackEl?.addEventListener('mousedown', (e) => {
+  isDragging     = true;
+  dragStartX     = e.pageX;
+  dragScrollLeft = indexTrackEl.scrollLeft;
+  indexTrackEl.style.scrollSnapType = 'none';
+  indexTrackEl.style.userSelect     = 'none';
+  indexTrackEl.style.cursor         = 'grabbing';
+});
+
+window.addEventListener('mouseup', () => {
+  if (!isDragging) return;
+  isDragging = false;
+  indexTrackEl.style.scrollSnapType = 'x mandatory';
+  indexTrackEl.style.userSelect     = '';
+  indexTrackEl.style.cursor         = '';
+});
+
+window.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+  indexTrackEl.scrollLeft = dragScrollLeft - (e.pageX - dragStartX) * 1.2;
+});
 
 
 // =========================

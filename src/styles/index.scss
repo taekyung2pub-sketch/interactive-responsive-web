@@ -13,7 +13,6 @@ body {
 // =========================
 // Nav override (index 전용)
 // =========================
-// 풀스크린 배경 위에 mix-blend-mode: difference 적용
 
 .nav {
   mix-blend-mode: difference;
@@ -22,7 +21,6 @@ body {
   .nav-logo,
   .nav-links { pointer-events: auto; }
 
-  // nav-menu-btn은 모바일에서만 pointer-events 허용
   @include md {
     .nav-menu-btn { pointer-events: auto; }
   }
@@ -105,13 +103,11 @@ body {
   width: 16px;
   height: 16px;
   filter: invert(1);
-  // opacity + rotate 동시 — 같은 중심점에서 회전하며 교체
   transition:
           opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
           transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-// 기본 (featured 모드): square 보임, list는 -180° 대기
 .btn-icon-square {
   opacity: 1;
   transform: rotate(0deg);
@@ -122,7 +118,6 @@ body {
   transform: rotate(-180deg);
 }
 
-// index 모드 전환: square → +180° 퇴장, list → 0° 등장
 .layout.is-index {
   .btn-icon-square {
     opacity: 0;
@@ -158,15 +153,31 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   transition: opacity 0.8s $ease-normal;
 
   &.is-active { opacity: 1; z-index: 2; }
   &.is-out    { opacity: 0; z-index: 1; }
 
-  img {
+  // 블러 배경
+  .slide-bg {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: blur(32px) brightness(0.35);
+    transform: scale(1.1); // blur 가장자리 잘림 방지
+    display: block;
+  }
+
+  // 메인 이미지
+  .slide-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     display: block;
   }
 }
@@ -175,7 +186,7 @@ body {
   font-size: $fs-xs;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba($black, 0.35);
+  color: rgba($white, 0.25);
   font-weight: 500;
 }
 
@@ -190,6 +201,16 @@ body {
   transition: color $ease-fast, opacity 0.5s $ease-normal;
   cursor: pointer;
   mix-blend-mode: difference;
+  display: flex;
+  align-items: center;
+  gap: $sp-xs;
+
+  img {
+    width: 12px;
+    height: 12px;
+    filter: invert(1);
+    opacity: 0.5;
+  }
 
   &:hover { color: $white; }
 
@@ -222,7 +243,9 @@ body {
   transform: translateY(12px);
   pointer-events: none;
   transition: opacity 0.5s $ease-normal, transform 0.5s $ease-normal;
+  cursor: grab;
 
+  &:active { cursor: grabbing; }
   &::-webkit-scrollbar { display: none; }
 
   .layout.is-index & {
@@ -246,11 +269,12 @@ body {
   &:last-child { border-right: none; }
   @include md { width: 85vw; }
 
-  &:hover .index-slide-thumb span { transform: scale(1.04); }
+  &:hover .index-slide-thumb .slide-img { transform: scale(1.04); }
 }
 
 .index-slide-thumb {
   flex: 1;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,18 +282,37 @@ body {
   border-bottom: 1px solid rgba($white, 0.08);
 
   span {
+    position: relative;
+    z-index: 1;
     font-size: $fs-xs;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba($black, 0.35);
+    color: rgba($white, 0.2);
     font-weight: 500;
-    transition: transform 0.6s ease;
   }
 
-  img {
+  // 블러 배경
+  .slide-bg {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: blur(24px) brightness(0.35);
+    transform: scale(1.1);
+    display: block;
+    pointer-events: none;
+  }
+
+  // 메인 이미지
+  .slide-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    pointer-events: none;
     transition: transform 0.6s ease;
   }
 }
@@ -283,8 +326,21 @@ body {
   @include md { padding: $sp-md; }
 }
 
-.index-slide-num  { font-size: $fs-xs; color: $gray-500; }
-.index-slide-name { font-size: clamp($fs-lg, 2.5vw, $fs-2xl); font-weight: 700; letter-spacing: -0.02em; }
+.index-slide-num {
+  font-size: $fs-xs;
+  color: $gray-500;
+  flex-shrink: 0;
+}
+
+.index-slide-name {
+  font-size: clamp($fs-lg, 2.5vw, $fs-2xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $white;
+  transition: opacity $ease-fast;
+
+  &[href]:hover { opacity: 0.6; }
+}
 
 
 // =========================
