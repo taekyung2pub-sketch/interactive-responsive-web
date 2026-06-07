@@ -10,6 +10,7 @@ export default defineConfig({
         'react-app':            'work/react-app.html',
         'portfolio':            'work/portfolio.html',
         'coming-soon':        'work/coming-soon.html',
+        'design-system':    'design-system/index.html',
       },
     },
   },
